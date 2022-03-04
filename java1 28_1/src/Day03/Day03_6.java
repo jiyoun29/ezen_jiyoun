@@ -126,7 +126,33 @@ public class Day03_6 {
 		} System.out.println("");
 		}
 		
-		//별문제9ㅁ
+		//별문제9 : 입력받은 줄만큼 출력
+		System.out.println("문제9) 거꾸로 트리 : "); int line9 = scanner.nextInt();
+		for(int i=1 ; i<=line9 ; i++) {
+			//1. 공백찍기
+			for(int b = 1 ; b<=i*2+1 ; b++) { System.out.print(" ");		}
+			//2. 별찍기
+			for(int s=1 ; s<=i+1 ; s++) {	System.out.print("*");}
+			for(int b = 1 ; b<=i*2-1 ; b++) { System.out.print(i);		}
+			System.out.println(" ");
+		} 
+		
+		
+//		System.out.print("문제6) 거꾸로 직각 별 : "); int line6 = scanner.nextInt();
+//		for(int i=1 ; i<=line6 ; i++) { //i는 1부터 입력받은 수까지 출력
+//			//1. 공백찍기
+//			// i까지가 아니라 i전까지. -i(b<=i-1)을 하거나 미만(b<i)처리하기
+//			for(int b = 1 ; b<=i-1 ; b++) {
+//				System.out.print(" ");
+//			}
+//			//2. 별찍기
+//			// s는 5 4 3 2 1 이므로 입력받은 값-1. 입력받은 수에 현재 상태i를 빼고 1을 더한다.
+//			for(int s = 1 ; s<=line6-i+1 ; s++) {
+//				System.out.print("*");
+//			}
+//			//3. 줄바꿈처리
+//			System.out.println();
+//		} //순서도를 적어놓고 증가하는 단위를 찾음
 		
 		//별문제10 (7+9)
 		
