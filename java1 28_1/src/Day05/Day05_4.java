@@ -37,15 +37,15 @@ public class Day05_4 {
 		String[][] memberlist = new String[100][2]; // 100행 2열	=> 회원당 1행	[1열=id][2열=pw]
 		
 		//도서 목록 만들기
+		//String[] bookArray = null;
+	//	bookArray = new String[] {"어린왕자","목걸이","라푼젤","호수","인형"};
 		String[] bookArray = {"어린왕자","목걸이","라푼젤","호수","인형"};
 		ArrayList<String> booklist = new ArrayList<>(Arrays.asList(bookArray));
-
-//		int[][] 배열2 = new int[2][3]; 
-//		//2차원 배열. 앞이 행, 뒤가 열. 4바이트 * 2 * 3 => 24바이트 배열
-//		배열2[0][0] = 80; 배열2[0][1] = 90; 배열2[0][2] = 100;
-//		배열2[1][0] = 40; 배열2[1][1] = 50; 배열2[1][2] = 60;
 		
-		//////////////////////////////////////////////////////////////////////////
+	//	String[][] borrow = new String[100][3];
+//		ArrayList<String> booklist = new ArrayList<>(Arrays.asList(bookArray));
+
+		/////////////////////////////////////////////////////
 	
 		while(true) {
 			System.out.println("------------------------");
@@ -93,24 +93,31 @@ public class Day05_4 {
 				System.out.println("-------도서 대여 목록-------");
 				System.out.print("1.도서 검색 2.도서 목록 3.도서 대여 4.도서 반납 5.로그아웃 "); int ch2 = scanner.nextInt(); 
 				
-				if(ch2 == 1) { System.out.println("도서 검색 : "); 
-							String 검색 = scanner.next(); int index = booklist.indexOf(검색);
-					 System.out.println("검색한 도서 : " + 검색 + "\n" + "대여 가능 여부 : " + booklist.indexOf(검색) );
-					 	// 책이 대여 전이면 대출 가능, 아니면 대출 불가능
-					 
+				if(ch2 == 1) { System.out.println("도서 검색 : "); String 검색 = scanner.next(); 
+							int index = booklist.indexOf(검색);
+							if(index >= 0) {System.out.println("검색한 도서 : " + 검색 + "\n" + "대여 가능" );}
+							else {System.out.println("검색한 도서 : " + 검색 + "\n" + "대여 불가능" );}
+					 	// 책이 대여 전이면 대출 가능, 아니면 대출 불가능 ******없는 책이면 없다고 나오게
+	
 				} else if (ch2 == 2) { System.out.println("\t도서 목록\t");
 									System.out.println(booklist);
-									//대여가능여부도 나타나도록
-									
-				} else if (ch2 == 3) { System.out.println("대여할 도서 이름 : " );
-								//대여 가능 여부에 따라
-									System.out.println( "대여가 완료되었습니다."); 
-							//대여한 책을 리스트에서 제외하고 대여가 안 될 시 대여가 불가능하다********라는 코드 짜야함
+									//대여가능여부도 나타나도록 **********
 
-				} else if (ch2 == 4) {//본인이 대여한 도서만 반납처리
-					System.out.println("반납할 수 있는 도서 목록"); // 대여한 도서 목록
+				} else if (ch2 == 3) { System.out.println("대여할 도서 이름 : " ); String 대여 = scanner.next();
+								//대여할 도서 이름을 쓰면 대여 여부가 나오도록 ********
+				System.out.println( "대여가 완료되었습니다."); 
+							//대여한 책을 리스트에서 제외하고 대여가 안 될 시 대여가 불가능하다********라는 코드 짜야함
+							//대여하면 booklist에서 제외 ********
+
+				} else if (ch2 == 4) {//본인이 대여한 도서만 반납처리 *************
+					System.out.println("반납할 수 있는 도서 목록"); // 대여한 도서 목록이 나타나도록
+					// 로그인한 회원의 대여 바구니를 만들기********** 거기서만 반납할 수 있도록***********
 				System.out.println("반납할 도서 이름 : ");  String 반납 = scanner.next(); //대여한 도서가 맞는 지 확인
 				System.out.println( 반납 + "를(을) 반납하였습니다."); 
+					//다시 booklist에 넣기
+				
+				
+				//////////////////////////////
 				
 				} else if (ch2 == 5) { System.err.println("알림)로그아웃 되었습니다."); //////로그아웃시 초기메뉴로
 				} else {	System.err.println("알림) 알 수 없는 번호입니다.");		}
