@@ -14,8 +14,11 @@ public class Ramyeon1 {
  
 	 Scanner scanner = new Scanner(System.in);
 	 //읽을 수 있는 스캐너를 생성한다.
+	 StringBuffer 랜덤 = new StringBuffer();
 	 Random random = new Random();
 	 // 랜덤을 읽을 수 있게 객체를 생성한다.
+	 
+	 String chars[] = "고소한,맛있는,훌륭한,짭짤한".split(",");
 	 
 	 while(true) {  System.out.println("----------라면 끓이기 시작!----------");
 	 // 1. 냄비에 물을 채운다.
@@ -53,8 +56,8 @@ public class Ramyeon1 {
 		 		}else { System.out.println("알림) 알 수 없는 번호입니다."); }
 		 		//잘못된 숫자 입력시 알림 발송'
 		 		
-		 		 System.out.println( random.nextInt(10) + "점 짜리 라면이 완성 되었습니다.");
-		 		 //랜덤으로 라면의 점수를 송출한다.
+		 		 System.out.println( 랜덤.append(chars[random.nextInt(chars.length)]) + " 라면이 완성 되었습니다.");
+		 		 //랜덤으로 라면의 맛을 송출한다.
 		 		 
 		 		 break;
 		 		} // while2 end
