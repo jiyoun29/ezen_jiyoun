@@ -21,7 +21,7 @@ public class Start extends Application {
 		
 		
 		//3. 스테이지 로고 설정
-			//이미지 불러오기
+			//1. 이미지 불러오기
 		Image image = new Image("/img/stagelogo.png"); //이미지 객체화
 			//절대 경로 vs 상대 경로
 			//모든 경로 : 현 위치 기준 경로

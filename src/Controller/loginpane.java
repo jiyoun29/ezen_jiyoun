@@ -68,6 +68,22 @@ public class loginpane implements Initializable {
 
 	    @FXML
 	    void login(ActionEvent event) {
+	    	
+	    	//2번 방법
+//	    	String id = txtid.getText(); //해당 fxid에 입력된 값 가져오기
+//	    	String pw = txtpw.getText();
+//	    	
+//	    	if(id.equals("admin") && pw.equals("1234")) {
+//	    		con.setText("관리자님, 안녕하세요.");
+//	    	} else {con.setText("일반인님, 안녕하세요.");}
+	    	
+	    	//1번 방법
+	    	//System.out.println(txtid.getText() + "가 아이디로 입력되었습니다.");
+	    	//System.out.println(txtpw.getText() + "가 비밀번호로 입력되었습니다.");
+	    	
+	    	
+	    	
+	    	
 	    	System.out.println("로그인 처리");
 
 	    }
