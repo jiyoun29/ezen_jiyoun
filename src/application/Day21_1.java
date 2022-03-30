@@ -13,6 +13,7 @@ public class Day21_1 extends Application {
 	//오류 ㅣ The type Day21_1 must implement the inherited abstract method Application.start(Stage)
 		//구현 필요
 	
+	
 	//Ctrl space START
 	@Override
 	public void start(Stage stage) throws Exception {

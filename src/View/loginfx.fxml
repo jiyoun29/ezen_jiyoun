@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.login">
+   <children>
+      <MediaView fx:id="mediaview" fitHeight="720.0" fitWidth="1280.0" />
+      <ImageView fitHeight="236.0" fitWidth="331.0" layoutX="63.0" layoutY="60.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../stagelogo.png" />
+         </image>
+      </ImageView>
+      <Text fill="#faaaaa" layoutX="894.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="이젠 마켓 중고 거래" wrappingWidth="257.666015625">
+         <font>
+            <Font name="HYHeadLine-Medium" size="28.0" />
+         </font>
+      </Text>
+      <BorderPane fx:id="borderpane" layoutX="479.0" layoutY="160.0" prefHeight="400.0" prefWidth="300.0" />
+      <ImageView fitHeight="262.0" fitWidth="316.0" layoutX="865.0" layoutY="352.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../stagelogo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

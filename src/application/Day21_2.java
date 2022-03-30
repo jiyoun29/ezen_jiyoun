@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
 public class Day21_2 extends Application { //어플리케이션 클래스로부터 상속 받음
 
 		@Override
