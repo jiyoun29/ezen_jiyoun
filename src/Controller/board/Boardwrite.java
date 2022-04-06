@@ -47,7 +47,7 @@ public class Boardwrite implements Initializable {
 		  
 		  //2.객체화(dto에 있는 board)
 		  	//번호(생략=0), 제목, 내용, 작성자, 작성일(자동), 조회수(자동)
-		  Board board = new Board(0, title, content, title, null, 0);
+		  Board board = new Board(0, title, content, write, null, 0);
 		  
 		  //3.db저장
 		  	//dto/dao 차이점***알아두기

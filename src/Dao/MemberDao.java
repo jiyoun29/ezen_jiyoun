@@ -84,8 +84,10 @@ public class MemberDao { //DB 접근객체
 				ps.setString(2, member.getMpw()); //비번
 				ps.setString(3, member.getMemail()); //이메일
 				ps.setString(4, member.getMaddress()); //주소
-				ps.setString(5, member.getMpoint()); //포인트
+				ps.setInt(5, member.getMpoint()); //포인트
 				ps.setString(6, member.getMsince()); //가입일
+				
+				// 회원가입 왜 안될까요???
 				
 				//3. sql 실행
 				ps.executeUpdate();
@@ -224,7 +226,7 @@ public class MemberDao { //DB 접근객체
 							rs.getString(3),
 							rs.getString(4),
 							rs.getString(5),
-							rs.getString(6),
+							rs.getInt(6),
 							rs.getString(7));
 							//1개씩 담기
 					//rs.next(): 결과내 다음 레코드(줄,가로)
@@ -289,5 +291,27 @@ public class MemberDao { //DB 접근객체
 			
 			return false;
 		}
+		
+		
+		
+		//8. 해당 회원번호로 해당 id 찾기
+		public String getmid(int mnum) {
+			
+			try {
+				String sql = "select mid from member where =?";
+				
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, mnum);
+				rs = ps.executeQuery();
+				if(rs.next()) {
+					return rs.getString(1); //찾은 id 반환
+				}
+			} catch (Exception e) {System.out.println("sql 오류 : "+e);}
+			return null;
+		}
+		
+		
+		
+		
 		
 }

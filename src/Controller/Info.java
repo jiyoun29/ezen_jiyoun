@@ -34,7 +34,7 @@ public class Info implements Initializable {
 		lblid.setText(login.member.getMid());
 		lblemail.setText(login.member.getMemail());
 		lbladdress.setText(login.member.getMaddress());
-		lblpoint.setText(login.member.getMpoint());
+		lblpoint.setText(login.member.getMpoint()+"");
 		lblsince.setText(login.member.getMsince());
 
 	

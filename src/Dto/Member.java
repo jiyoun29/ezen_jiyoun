@@ -17,7 +17,7 @@ public class Member { //데이터 모델
 	private String mpw; //회원 비밀번호
 	private String memail; //이메일
 	private String maddress; //주소
-	private String mpoint; //포인트
+	private int mpoint; //포인트
 	private String msince; //가입일
 	
 	
@@ -27,7 +27,7 @@ public class Member { //데이터 모델
 
 
 	//생성자
-	public Member(int mnum, String mid, String mpw, String memail, String maddress, String mpoint, String msince) {
+	public Member(int mnum, String mid, String mpw, String memail, String maddress, int mpoint, String msince) {
 		super();
 		this.mnum = mnum;
 		this.mid = mid;
@@ -145,12 +145,12 @@ public class Member { //데이터 모델
 	}
 
 
-	public String getMpoint() {
+	public int getMpoint() {
 		return mpoint;
 	}
 
 
-	public void setMpoint(String mpoint) {
+	public void setMpoint(int mpoint) {
 		this.mpoint = mpoint;
 	}
 

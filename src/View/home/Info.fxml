@@ -7,14 +7,14 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="Controller.Info" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Info">
    <children>
       <ImageView fitHeight="513.0" fitWidth="575.0" layoutX="163.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../img/큰팝업창_분홍.png" />
          </image>
       </ImageView>
-      <Label layoutX="400.0" layoutY="169.0" prefHeight="36.0" prefWidth="100.0" text="회원정보" textFill="#faaaaa">
+      <Label layoutX="368.0" layoutY="168.0" prefHeight="36.0" prefWidth="169.0" text="회원정보" textFill="#faaaaa">
          <font>
             <Font name="Hancom Gothic Regular" size="26.0" />
          </font>

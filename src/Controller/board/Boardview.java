@@ -34,16 +34,17 @@ public class Boardview implements Initializable {
 		
 		//각 컨트롤에 설정하기
 		lblwrite.setText("작성자 : " + board.getBwriter());
-		lblwrite.setText("작성일 : " + board.getBdate());
-		lblwrite.setText("조회수 : " + board.getBview());
-		lblwrite.setText(board.getBtitle());
-		lblwrite.setText(board.getBcontent());
+		lbldate.setText("작성일 : " + board.getBdate());
+		lblview.setText("조회수 : " + board.getBview());
+		txttitle.setText(board.getBtitle());
+		txtcontent.setText(board.getBcontent());
 		
 		//만약에 작성자와 현재 로그인된 id가 동일하지 않으면
 		if( ! board.getBwriter().equals(login.member.getMid())) { //!:부정
 		//버튼 숨기기
 		btndelete.setVisible(false); 
-		btnupdate.setVisible(false); }
+		btnupdate.setVisible(false); 
+		}
 		//true = 보이기
 
 		//텍스트 필드 컨트롤 수정 못하게 잠금 처리
@@ -98,13 +99,13 @@ public class Boardview implements Initializable {
     	tc.setCellValueFactory(new PropertyValueFactory<>("rnum"));
 
     	tc = replytable.getColumns().get(1);
-    	tc.setCellValueFactory(new PropertyValueFactory<>("rcontent"));
-    	
-    	tc = replytable.getColumns().get(2);
     	tc.setCellValueFactory(new PropertyValueFactory<>("rwrite"));
 
-    	tc = replytable.getColumns().get(3);
+    	tc = replytable.getColumns().get(2);
     	tc.setCellValueFactory(new PropertyValueFactory<>("rdate"));
+
+    	tc = replytable.getColumns().get(3);
+    	tc.setCellValueFactory(new PropertyValueFactory<>("rcontent"));
     	
     	
     	//테이블뷰에 리스트 넣어주기
@@ -170,16 +171,17 @@ public class Boardview implements Initializable {
     	int bnum = Controller.board.Board.board.getBnum();
     	
     	//객체화
-    	Reply reply = new Reply(0, rcontent, rwrite, null, 0);
+    	Reply reply = new Reply(0, rcontent, rwrite, null, bnum);
     	
     	//db처리
     	boolean result = BoardDAO.boardDAO.rwrite(reply);
     	
     	if(result) {
     		Alert alert = new Alert(AlertType.INFORMATION);
-    			alert.setHeaderText(rwrite);
-    		alert.showAndWait();
-    		
+    			alert.setHeaderText("댓글 등록 성공");
+
+    			alert.showAndWait();
+    			//댓글 입력창 초기화
     		//댓글 입력
     		txtrecontent1.setText("");
     		
@@ -206,6 +208,7 @@ public class Boardview implements Initializable {
 		btnupdate.setText("수정 완료");
 		
     	upcheck = false;
+    	
     	} else { //수정완료
     		//db처리
     		BoardDAO.boardDAO.update(Controller.board.Board.board.getBnum(),

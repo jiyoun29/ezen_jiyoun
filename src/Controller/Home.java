@@ -31,6 +31,19 @@ public class Home implements Initializable {
 	
 	////////////////
 	
+
+
+	//실행초기 메소드
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		loginid.setText(login.member.getMid()+" 님");
+		labpoint.setText("포인트 :"+login.member.getMpoint()+"점");
+		
+		
+	}
+	
+	
+	
 	@FXML
 	private Label loginid;  // 자동완성 하실때 절대 javafx 말고 java.awt 나 swing 사용하면 안됩니다~~
 	@FXML
@@ -52,10 +65,25 @@ public class Home implements Initializable {
 	
 	@FXML
 	private BorderPane borderPane; //이름 home.fxml 이랑 동일하게
+
+// 아까 오전에 게시판쪽 안된다고 하지 않았나요? 수정/삭제 버튼이 신빌더에는 있는데 F11로 띄웠을때 나오지 않아요,,
+	// 잘 되는것 같ㅋ은데요?? 분명 안 됐었는데..........
 	
-	
-	
+	//내가쓴글
+	@FXML
+	public void accmylist(MouseEvent e) {
 		
+	}
+	
+	
+	
+	
+			
+	@FXML	//제품
+	public void accproduct(MouseEvent e) { loadpage("/view/product/product.fxml"); }
+			
+			
+			
 	@FXML	//자유게시판
 	public void accboard(MouseEvent e) { loadpage("/view/board/board.fxml"); }
 
@@ -72,7 +100,7 @@ public class Home implements Initializable {
 		try {
 			Parent parent = FXMLLoader.load(getClass().getResource(page));
 			borderPane.setCenter(parent);
-		} catch (Exception e) {		}
+		} catch (Exception e) {	 System.out.println(e);	} // 예외처리 결과 출력하면 오류 이유를 알수 있어요~
 		
 	}
 	
@@ -83,22 +111,6 @@ public class Home implements Initializable {
 
 	
 	
-
-	//실행초기 메소드
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		loginid.setText(login.member.getMid()+" 님");
-		labpoint.setText("포인트 :"+login.member.getMpoint()+"점");
-		
-		
-		
-		
-	}
-	
-	
-	
-	
-	
 	@FXML //로그아웃 레이블을 클릭 했을 때
 	public void logout(MouseEvent e) {
 		//1.login 정보 지우기
@@ -107,6 +119,8 @@ public class Home implements Initializable {
 		//2.페이지 전환
 		main.instance.loadpage("/view/loginfx.fxml");
 	}
+	
+	
 	
 	
 	@FXML //회원탈퇴 레이블을 클릭했을 때
@@ -136,9 +150,6 @@ public class Home implements Initializable {
 				} else {//탈퇴 실패
 					System.out.println(); }
 			}
-			
-			//아니면
-		
 	}
 	
 		

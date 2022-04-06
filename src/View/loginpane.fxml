@@ -19,7 +19,7 @@
             <Font name="HYHeadLine-Medium" size="12.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signup" layoutX="198.0" layoutY="24.0" mnemonicParsing="false" onAction="#accsingup" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #faaaaa;" text="회원가입" textFill="WHITE">
+      <Button fx:id="signup" layoutX="183.0" layoutY="24.0" mnemonicParsing="false" onAction="#accsingup" prefHeight="42.0" prefWidth="90.0" style="-fx-background-color: #faaaaa;" text="회원가입" textFill="WHITE">
          <font>
             <Font name="HCR Dotum Bold" size="14.0" />
          </font>
@@ -29,12 +29,12 @@
             <Font name="HCR Dotum" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="findid" layoutX="34.0" layoutY="308.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #faaaaa;" text="아이디 찾기" textFill="WHITE">
+      <Button fx:id="findid" layoutX="28.0" layoutY="308.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: #faaaaa;" text="아이디 찾기" textFill="WHITE">
          <font>
             <Font name="HCR Dotum Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="findpw" layoutX="162.0" layoutY="308.0" mnemonicParsing="false" onAction="#accfindpw" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #faaaaa;" text="비밀번호 찾기" textFill="WHITE">
+      <Button fx:id="findpw" layoutX="157.0" layoutY="308.0" mnemonicParsing="false" onAction="#accfindpw" prefHeight="42.0" prefWidth="116.0" style="-fx-background-color: #faaaaa;" text="비밀번호 찾기" textFill="WHITE">
          <font>
             <Font name="HCR Dotum Bold" size="14.0" />
          </font>

@@ -9,14 +9,14 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:controller="Controller.Update" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Update">
    <children>
       <ImageView fitHeight="513.0" fitWidth="575.0" layoutX="163.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../../../img/큰팝업창_분홍.png" />
          </image>
       </ImageView>
-      <Label layoutX="374.0" layoutY="169.0" prefHeight="36.0" prefWidth="157.0" text="회원정보 수정" textFill="#faaaaa">
+      <Label layoutX="358.0" layoutY="169.0" prefHeight="36.0" prefWidth="189.0" text="회원정보 수정" textFill="#faaaaa">
          <font>
             <Font name="Hancom Gothic Regular" size="26.0" />
          </font>
@@ -34,7 +34,7 @@
       </Label>
       <TextField fx:id="txtemail" layoutX="354.0" layoutY="276.0" prefHeight="54.0" prefWidth="189.0" />
       <TextField fx:id="txtaddress" layoutX="352.0" layoutY="379.0" prefHeight="54.0" prefWidth="189.0" />
-      <Button fx:id="btupdate" onAction="#update" layoutX="406.0" layoutY="451.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: ffffff;" text="수정" textFill="#faaaaa">
+      <Button fx:id="btupdate" layoutX="406.0" layoutY="451.0" mnemonicParsing="false" onAction="#update" prefHeight="36.0" prefWidth="82.0" style="-fx-background-color: ffffff;" text="수정" textFill="#faaaaa">
          <font>
             <Font name="HCR Dotum" size="18.0" />
          </font>
