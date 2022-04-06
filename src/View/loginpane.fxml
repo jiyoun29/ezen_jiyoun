@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:controller="Controller.loginpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.login.loginpane">
    <children>
       <TextField fx:id="txtid" layoutX="34.0" layoutY="81.0" prefHeight="56.0" prefWidth="233.0" promptText="아이디">
          <font>
@@ -20,24 +19,24 @@
             <Font name="HYHeadLine-Medium" size="12.0" />
          </font>
       </PasswordField>
-      <Button fx:id="signup" layoutX="193.0" layoutY="28.0" mnemonicParsing="false" onAction="#accsingup" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #faaaaa;" text="회원가입" textFill="WHITE">
+      <Button fx:id="signup" layoutX="198.0" layoutY="24.0" mnemonicParsing="false" onAction="#accsingup" prefHeight="33.0" prefWidth="75.0" style="-fx-background-color: #faaaaa;" text="회원가입" textFill="WHITE">
          <font>
-            <Font name="HYHeadLine-Medium" size="12.0" />
+            <Font name="HCR Dotum Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="btlogin" layoutX="56.0" layoutY="238.0" mnemonicParsing="false" onAction="#login" prefHeight="56.0" prefWidth="189.0" style="-fx-background-color: #faaaaa;" text="로그인" textFill="WHITE">
+      <Button fx:id="btlogin" layoutX="56.0" layoutY="234.0" mnemonicParsing="false" onAction="#login" prefHeight="56.0" prefWidth="189.0" style="-fx-background-color: #faaaaa;" text="로그인" textFill="WHITE">
          <font>
-            <Font name="HYHeadLine-Medium" size="25.0" />
+            <Font name="HCR Dotum" size="25.0" />
          </font>
       </Button>
-      <Button fx:id="findid" layoutX="169.0" layoutY="312.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="23.0" prefWidth="99.0" style="-fx-background-color: #faaaaa;" text="아이디 찾기" textFill="WHITE">
+      <Button fx:id="findid" layoutX="34.0" layoutY="308.0" mnemonicParsing="false" onAction="#accfindid" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #faaaaa;" text="아이디 찾기" textFill="WHITE">
          <font>
-            <Font name="HYHeadLine-Medium" size="12.0" />
+            <Font name="HCR Dotum Bold" size="14.0" />
          </font>
       </Button>
-      <Button fx:id="findpw" layoutX="169.0" layoutY="342.0" mnemonicParsing="false" onAction="#accfindpw" prefHeight="21.0" prefWidth="99.0" style="-fx-background-color: #faaaaa;" text="비밀번호 찾기" textFill="WHITE">
+      <Button fx:id="findpw" layoutX="162.0" layoutY="308.0" mnemonicParsing="false" onAction="#accfindpw" prefHeight="42.0" prefWidth="105.0" style="-fx-background-color: #faaaaa;" text="비밀번호 찾기" textFill="WHITE">
          <font>
-            <Font name="HYHeadLine-Medium" size="12.0" />
+            <Font name="HCR Dotum Bold" size="14.0" />
          </font>
       </Button>
       <Label fx:id="con" alignment="TOP_CENTER" layoutX="56.0" layoutY="212.0" prefHeight="15.0" prefWidth="189.0" text="로그인 오류 시 표기되는 구역" textFill="RED">
