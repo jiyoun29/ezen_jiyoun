@@ -13,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -31,22 +32,34 @@ public class ProductControl implements Initializable {
 
     @FXML
     private VBox btnvb;
+    
 
     @FXML
-    void accadd(ActionEvent event) { //제품등록
-    	Home.home.loadpage("/View/product/productadd.fxml");
+    private Button btnsearch;
 
-    }
-	
-    public static Product select; //선택된 버튼 저장
-	
-	
-	@Override //구현 완료
-	public void initialize(URL arg0, ResourceBundle arg1) {
+    @FXML
+    private TextField txtsearch;
+    
+    
+    
+    void show(String search) {
+    	
+    	
+    	if(btnvb.getChildren().isEmpty() == false) {
+    		// isEmpty() : 해당 객체 내 비어 있는지 확인[vbox내에]
+
+    		//비어있지 않으면
+    		btnvb.getChildren().remove(0); // 객체가 비어있지 않으면 vbox내 기존 객체를 삭제
+    		
+    	}
+    	
 		
 		//1.모든 제품 가져오기
-		ArrayList<Product> productlist = ProductDao.productDao.list();
-		System.out.println("확인:"+productlist.toString()); //확인
+		ArrayList<Product> productlist = ProductDao.productDao.list(Home.category, search);
+		//조건없이 모든 리스트 빼오기(home.category라고해서 내가 선택한 것 집어넣기)
+		
+		
+//		System.out.println("확인:"+productlist.toString()); //확인
 		
 		
 		//* 제품의 개수가 다수일때
@@ -136,11 +149,40 @@ public class ProductControl implements Initializable {
 			}
 		}
 		
+		
 		//4. vbox에 그리드 넣기
 		btnvb.getChildren().add(gridPane);
 		
 		//이 행,열로 좌석이나 기타 등등 생성 가능 
 		
+		
+    }
+
+
+    @FXML
+    void search(ActionEvent event) { //검색 버튼 눌렀을때
+    	
+    	String search = txtsearch.getText(); //검색창에 입력된 데이터 가져오기
+    	show(search); //입력한 검색어를 show 메소드에 넣어주기
+    }
+    
+
+    @FXML
+    void accadd(ActionEvent event) { //제품등록
+    	Home.home.loadpage("/View/product/productadd.fxml");
+
+    }
+	
+    public static Product select; //선택된 버튼 저장
+	
+	
+	@Override //구현 완료
+	public void initialize(URL arg0, ResourceBundle arg1) { //전체코드를 메소드화
+													//이유 : search할때에도 ini~할 때도 써야하기 때문에
+												//만들어둔거 다 가져와서 위의 show에 넣기
+		show(null); //가져와서 사용
+		//안에 null을 넣음.
+		//화면이 처음 열렸을 때에는 검색어를 null 넣어준다.
 	}
 	
 }

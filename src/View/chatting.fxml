@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Chatting">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="900.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../img/큰팝업창_분홍.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnconnect" layoutX="261.0" layoutY="109.0" mnemonicParsing="false" onAction="#connect" prefHeight="59.0" prefWidth="159.0" style="-fx-background-color: faaaaa;" text="입장" textFill="WHITE">
+         <font>
+            <Font name="HCR Dotum Bold" size="18.0" />
+         </font>
+      </Button>
+      <Label layoutX="29.0" layoutY="27.0" prefHeight="59.0" prefWidth="292.0" text="실시간 커뮤니티" textFill="WHITE">
+         <font>
+            <Font name="HCR Dotum" size="24.0" />
+         </font>
+      </Label>
+      <TextArea fx:id="txtcontent" layoutX="161.0" layoutY="183.0" prefHeight="388.0" prefWidth="366.0" />
+      <TextField fx:id="txtmsg" layoutX="161.0" layoutY="582.0" prefHeight="47.0" prefWidth="266.0" />
+      <Button fx:id="btnsend" layoutX="434.0" layoutY="582.0" mnemonicParsing="false" onAction="#send" prefHeight="47.0" prefWidth="94.0" style="-fx-background-color: faaaaa;" text="전송" textFill="WHITE">
+         <font>
+            <Font name="HCR Dotum" size="14.0" />
+         </font>
+      </Button>
+      <TextField fx:id="txtname" layoutX="598.0" layoutY="291.0" prefHeight="39.0" prefWidth="188.0" />
+      <TextField fx:id="txtip" layoutX="598.0" layoutY="369.0" prefHeight="39.0" prefWidth="188.0" />
+      <TextField fx:id="txtport" layoutX="598.0" layoutY="449.0" prefHeight="39.0" prefWidth="188.0" />
+      <Label layoutX="598.0" layoutY="252.0" prefHeight="39.0" prefWidth="188.0" text="닉네임" textFill="#ffaaaa">
+         <font>
+            <Font name="HCR Dotum Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="598.0" layoutY="330.0" prefHeight="39.0" prefWidth="188.0" text="서버 ip 주소" textFill="#ffaaaa">
+         <font>
+            <Font name="HCR Dotum Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="598.0" layoutY="410.0" prefHeight="39.0" prefWidth="188.0" text="서버 port 번호" textFill="#ffaaaa">
+         <font>
+            <Font name="HCR Dotum Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="618.0" layoutY="203.0" prefHeight="39.0" prefWidth="149.0" text="입력 후 입장 가능" textAlignment="CENTER" textFill="#ffaaaa">
+         <font>
+            <Font name="HCR Dotum Bold" size="18.0" />
+         </font>
+      </Label>
+      <Line endX="100.0" layoutX="693.0" layoutY="252.0" startX="-100.0" stroke="#faaaaa" strokeWidth="5.0" />
+   </children>
+</AnchorPane>

@@ -36,14 +36,12 @@ public class Start extends Application {
 			//생략 [src폴더부터] /img/stagelogo.
 		
 		
-		
 		//*외부폰트 적용
 			//1. 폰트 가져오기
 		Font.loadFont(getClass().getResourceAsStream("SANGJU Gotgam.ttf"), 13);
 			//2. 외부 스타일시트 적용
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 	
-		
 		
 		
 		//스테이지 설정

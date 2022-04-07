@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -17,14 +18,14 @@
             <Image url="@../../../../../img/큰팝업창_분홍.png" />
          </image>
       </ImageView>
-      <Label layoutX="52.0" layoutY="62.0" prefHeight="14.0" prefWidth="117.0" text="중고제품" textFill="WHITE">
+      <Label layoutX="52.0" layoutY="59.0" prefHeight="14.0" prefWidth="117.0" text="중고제품" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="HCR Dotum Bold" size="24.0" />
          </font>
       </Label>
       <Button fx:id="btnadd" layoutX="52.0" layoutY="124.0" mnemonicParsing="false" onAction="#accadd" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: faaaaa;" text="제품 등록" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="14.0" />
          </font>
       </Button>
       <Line endX="100.0" layoutX="152.0" layoutY="87.0" startX="-100.0" stroke="#faaaaa" />
@@ -33,5 +34,11 @@
             <VBox fx:id="btnvb" prefHeight="474.0" prefWidth="805.0" />
          </content>
       </ScrollPane>
+      <TextField fx:id="txtsearch" layoutX="376.0" layoutY="124.0" prefHeight="42.0" prefWidth="406.0" promptText="제품명" />
+      <Button fx:id="btnsearch" layoutX="795.0" layoutY="124.0" mnemonicParsing="false" onAction="#search" prefHeight="42.0" prefWidth="66.0" style="-fx-background-color: faaaaa;" text="검색" textFill="WHITE">
+         <font>
+            <Font name="HCR Dotum" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

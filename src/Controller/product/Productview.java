@@ -41,9 +41,12 @@ public class Productview implements Initializable {
 			
 		txtpprice.setText(decimalFormat.format(product.getPprice()));
 		
-		if(product.getPactivation() == 1) { txtpactivation.setText("상태 : 판매중"); }
-		if(product.getPactivation() == 2) { txtpactivation.setText("상태 : 거래중"); }
-		if(product.getPactivation() == 3) { txtpactivation.setText("상태 : 판매완료"); }
+		if(product.getPactivation() == 1) { txtpactivation.setText("상태 : 판매중");  //변경 버튼
+				btnacctivation.setText("거래중");		}
+		if(product.getPactivation() == 2) { txtpactivation.setText("상태 : 거래중"); 
+				btnacctivation.setText("판매완료"); }
+		if(product.getPactivation() == 3) { txtpactivation.setText("상태 : 판매완료"); 
+				btnacctivation.setText("판매중");}
 		
 		txtmdate.setText("제품 등록일 : "+product.getPdate());
 		
@@ -61,6 +64,53 @@ public class Productview implements Initializable {
 		}
 		
 	}
+	
+	
+//상태 변경
+	    @FXML
+	    private Button btnacctivation;
+	
+	
+	    @FXML
+	    void acctivation(ActionEvent event) {
+	    	
+	//   	txtpactivation.setText("상태 : 판매완료");
+
+	    	if(btnacctivation.getText().equals("거래중")) {
+	    		
+	    		//컨트롤에 값 변경
+	    		txtpactivation.setText("상태 : 거래중"); btnacctivation.setText("판매완료");
+	    		//컨트롤에 내가 선택한 pnum을 넘겨서 그거에 해당하느 ㄴ걸 select해서 1번이면 2번으로 업데이트 처리
+
+	    		//db의 값 변경
+	    		ProductDao.productDao.activation(ProductControl.select.getPnum());
+
+	    		//선택된 제품의 상태변경
+	    		ProductControl.select.setPactivation(2); //거래중
+	    		
+	    		
+	    		return; }
+	    	
+	    	if(btnacctivation.getText().equals("판매중")) {
+	    		txtpactivation.setText("상태 : 판매중"); btnacctivation.setText("거래중");  
+	    		ProductDao.productDao.activation(ProductControl.select.getPnum());
+
+	    		ProductControl.select.setPactivation(3);
+
+	    		return;	}    	
+	    	
+	    	if(btnacctivation.getText().equals("판매완료")) {
+	    		txtpactivation.setText("상태 : 판매완료"); btnacctivation.setText("판매중"); 
+	    		ProductDao.productDao.activation(ProductControl.select.getPnum());
+
+	    		ProductControl.select.setPactivation(1); 
+
+	    		return;	}
+
+	    }
+
+	 ///////////////////////////////////   
+	    
 	
 	   @FXML
 	    private Button btnback;

@@ -51,14 +51,31 @@ public class ProductDao {
 		return false;}
 		
 		
-		//2. 모든 제품 출력
-		public ArrayList<Product> list(){
+		//2. 모든 제품 출력								//서치도 받음
+		public ArrayList<Product> list( String category, String search ){ //control의 list에서 이동
+									// 괄호 안에 스트링 카테고리 넣어줌
 			
 			ArrayList<Product> productlist = new ArrayList<>();
 			
 			try {
-				String sql = "select * from product"; //sql 작성
-				ps = con.prepareStatement(sql);		//sql 연결
+				//search 넣고 다시 코드 추가
+				String sql = null;
+				
+				if(search == null) { sql = "select * from product where pcategory =? order by pnum desc"; //sql 작성
+				ps = con.prepareStatement(sql);		//sql 연결			//정렬이 뒤 @order by
+				ps.setString(1, category);
+				
+				} //검색이 없을 경우
+				//검색이 있을 경우										//이름이 같으면
+				else {sql = "select * from product where pcategory =? and pname like '%"+search+"%' order by pnum desc"; //sql 작성
+				ps = con.prepareStatement(sql);		//sql 연결							//정렬이 뒤 @order by
+																		//like : 
+																	//필드명 = 값 [=비교연산자] //필드명 like '%값%'[ 값이 포함됨 ]
+																						//앞뒤 따옴표 필수
+				ps.setString(1, category);
+					// ps.setString(2, search);
+					}
+				
 				rs = ps.executeQuery();				//sql 실행
 				
 				while(rs.next()) { 					//sql결과[레코드 단위]
@@ -117,6 +134,42 @@ public class ProductDao {
 			return false;
 		}
 		
+		
+		
+		
+		
+		//6. 상태변경
+		public boolean activation(int pnum ) {
+
+			try {
+				//현재 상태 알아보는 select. 현재 제품의 상태 검색
+				String sql = "select pactivation form poduct where pnum=?";
+				ps = con.prepareStatement(sql);
+				ps.setInt(1, pnum);
+				
+				rs = ps.executeQuery();
+				
+				//결과를 next해옴
+				if(rs.next()) {
+						String upsql = null;
+					if(rs.getInt(1) == 1) { upsql = "update product set pactivation=2 where pnum=?"; }
+					//내가 선택한 상태가 1이면 2로 업데이트를 하겠다는 뜻
+					
+					else if(rs.getInt(2) == 2) { upsql = "update product set pactivation=3 where pnum=?"; }
+					else if(rs.getInt(3) == 3) { upsql = "update product set pactivation=1 where pnum=?"; }
+				
+				//연결 다시
+				ps = con.prepareStatement(upsql);
+				ps.setInt(1, pnum);
+				ps.executeQuery();
+				return true;				
+				}
+				
+			} catch (Exception e) {System.out.println("sql 오류:"+e); }
+			
+			
+			return false;
+		}
 		
 		
 		

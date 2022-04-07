@@ -22,44 +22,44 @@
       <ImageView fx:id="img" fitHeight="294.0" fitWidth="388.0" layoutX="59.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true" />
       <Label layoutX="52.0" layoutY="50.0" prefHeight="14.0" prefWidth="117.0" text="중고제품" textFill="WHITE">
          <font>
-            <Font size="24.0" />
+            <Font name="HCR Dotum Bold" size="24.0" />
          </font>
       </Label>
       <Button fx:id="btnback" layoutX="341.0" layoutY="465.0" mnemonicParsing="false" onAction="#accback" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: faaaaa;" text="뒤로가기" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="14.0" />
          </font>
       </Button>
       <Button fx:id="btndelete" layoutX="205.0" layoutY="465.0" mnemonicParsing="false" onAction="#delete" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: faaaaa;" text="삭제" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="14.0" />
          </font>
       </Button>
       <Button fx:id="btnupdate" layoutX="59.0" layoutY="465.0" mnemonicParsing="false" onAction="#update" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: faaaaa;" text="수정" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="14.0" />
          </font>
       </Button>
-      <Label fx:id="txtpprice" layoutX="586.0" layoutY="163.0" prefHeight="42.0" prefWidth="144.0" text="희망 가격 : 00000원">
+      <Label fx:id="txtpprice" layoutX="472.0" layoutY="162.0" prefHeight="42.0" prefWidth="233.0" text="희망 가격 : 00000원">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="18.0" />
          </font>
       </Label>
       <Label fx:id="txtpactivation" layoutX="69.0" layoutY="121.0" prefHeight="42.0" prefWidth="144.0" text="제품 상태 :">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="txtpname" layoutX="464.0" layoutY="219.0" prefHeight="42.0" prefWidth="388.0" />
       <TextField fx:id="txtpcontent" layoutX="464.0" layoutY="272.0" prefHeight="235.0" prefWidth="388.0" />
       <Label fx:id="txtmdate" layoutX="222.0" layoutY="120.0" prefHeight="42.0" prefWidth="158.0" text="제품 등록일 :">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="13.0" />
          </font>
       </Label>
       <Label fx:id="txtmid" layoutX="389.0" layoutY="120.0" prefHeight="42.0" prefWidth="184.0" text="제품 등록 회원 :">
          <font>
-            <Font size="14.0" />
+            <Font name="HCR Dotum" size="13.0" />
          </font>
       </Label>
       <TableView layoutX="37.0" layoutY="520.0" prefHeight="133.0" prefWidth="832.0">
@@ -68,5 +68,10 @@
           <TableColumn prefWidth="75.0" text="C2" />
         </columns>
       </TableView>
+      <Button fx:id="btnacctivation" layoutX="749.0" layoutY="162.0" mnemonicParsing="false" onAction="#acctivation" prefHeight="42.0" prefWidth="96.0" style="-fx-background-color: faaaaa;" text="판매완료" textFill="WHITE">
+         <font>
+            <Font name="HCR Dotum" size="14.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

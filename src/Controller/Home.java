@@ -36,6 +36,12 @@ public class Home implements Initializable {
 	//실행초기 메소드
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		
+		//채팅
+		loadpage("/view/chatting.fxml");
+		
+		
+		
 		loginid.setText(login.member.getMid()+" 님");
 		labpoint.setText("포인트 :"+login.member.getMpoint()+"점");
 		
@@ -66,8 +72,58 @@ public class Home implements Initializable {
 	@FXML
 	private BorderPane borderPane; //이름 home.fxml 이랑 동일하게
 
-// 아까 오전에 게시판쪽 안된다고 하지 않았나요? 수정/삭제 버튼이 신빌더에는 있는데 F11로 띄웠을때 나오지 않아요,,
-	// 잘 되는것 같ㅋ은데요?? 분명 안 됐었는데..........
+	
+	//구분을 위한 카테고리
+	public static String category;
+	
+	
+	@FXML //남성의류
+	private Label lblproduct1;
+
+	@FXML
+	public void accproduct1(MouseEvent e) {
+		loadpage("/View/product/product.fxml");
+		category="남성의류";
+	}
+	
+	
+	@FXML //여성의류
+	private Label lblproduct2;
+
+	@FXML
+	public void accproduct2(MouseEvent e) {
+		loadpage("/View/product/product.fxml");
+		category="여성의류";		
+	}
+
+	
+	@FXML //게임기기
+	private Label lblproduct3;
+
+	@FXML
+	public void accproduct3(MouseEvent e) {
+		loadpage("/View/product/product.fxml");
+		category="게임기기";		
+	}
+
+	
+	@FXML //생활용품
+	private Label lblproduct4;
+	
+	@FXML
+	public void accproduct4(MouseEvent e) {
+		loadpage("/View/product/product.fxml");
+		category="생활용품";
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	//내가쓴글
 	@FXML
@@ -106,7 +162,7 @@ public class Home implements Initializable {
 	
 	
 	
-	@FXML //회원수정 이벤트
+	@FXML //회원수정 이벤트(업데이트)
 	public void accupdate(MouseEvent e) {loadpage("/view/home/Info2.fxml");}
 
 	

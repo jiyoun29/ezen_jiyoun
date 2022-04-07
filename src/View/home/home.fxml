@@ -64,7 +64,7 @@
                   <Font name="HCR Dotum" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="lblproduct" layoutX="28.0" layoutY="322.0" onMouseClicked="#accproduct" prefHeight="14.0" prefWidth="61.0" text="남성의류" textFill="#ffaaaa">
+            <Label fx:id="lblproduct1" layoutX="28.0" layoutY="322.0" onMouseClicked="#accproduct1" prefHeight="14.0" prefWidth="61.0" text="남성의류" textFill="#ffaaaa">
                <font>
                   <Font name="HCR Dotum" size="14.0" />
                </font>
@@ -79,17 +79,17 @@
                   <Font name="HCR Dotum" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="111.0" layoutY="322.0" prefHeight="14.0" prefWidth="61.0" text="여성의류" textFill="#ffaaaa">
+            <Label fx:id="lblproduct2" onMouseClicked="#accproduct2"  layoutX="111.0" layoutY="322.0" prefHeight="14.0" prefWidth="61.0" text="여성의류" textFill="#ffaaaa">
                <font>
                   <Font name="HCR Dotum" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="29.0" layoutY="350.0" prefHeight="14.0" prefWidth="61.0" text="게임기기" textFill="#ffaaaa">
+            <Label fx:id="lblproduct3" onMouseClicked="#accproduct3" layoutX="29.0" layoutY="350.0" prefHeight="14.0" prefWidth="61.0" text="게임기기" textFill="#ffaaaa">
                <font>
                   <Font name="HCR Dotum" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="111.0" layoutY="350.0" prefHeight="14.0" prefWidth="61.0" text="생활용품" textFill="#ffaaaa">
+            <Label fx:id="lblproduct4" onMouseClicked="#accproduct4"  layoutX="111.0" layoutY="350.0" prefHeight="14.0" prefWidth="61.0" text="생활용품" textFill="#ffaaaa">
                <font>
                   <Font name="HCR Dotum" size="14.0" />
                </font>
