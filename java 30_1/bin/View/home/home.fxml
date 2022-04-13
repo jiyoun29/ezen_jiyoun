@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Home">
+   <left>
+      <AnchorPane prefHeight="720.0" prefWidth="200.0" style="-fx-background-color: ffeeee;" BorderPane.alignment="CENTER">
+         <children>
+            <Label fx:id="loginid" layoutX="27.0" layoutY="142.0" prefHeight="20.0" prefWidth="149.0" text="000000 님" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="logout" layoutX="118.0" layoutY="165.0" onMouseClicked="#logout" prefHeight="14.0" prefWidth="64.0" text="로그아웃" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labpoint" layoutX="27.0" layoutY="165.0" prefHeight="20.0" prefWidth="83.0" text="포인트 : " textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="100.0" layoutY="617.0" startX="-100.0" stroke="#ffaaaa" strokeMiterLimit="20.0" />
+            <Label layoutX="20.0" layoutY="653.0" prefHeight="14.0" prefWidth="89.0" text="고객센터" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="675.0" prefHeight="20.0" prefWidth="154.0" text="010 1234 5678" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="144.0" layoutY="631.0" prefHeight="16.0" prefWidth="34.0" text="신고" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="22.0" layoutY="226.0" prefHeight="16.0" prefWidth="26.0" text="홈" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="100.0" layoutY="208.0" startX="-100.0" stroke="#ffaaaa" strokeMiterLimit="20.0" />
+            <Label layoutX="27.0" layoutY="246.0" prefHeight="20.0" prefWidth="86.0" text="공지사항" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="20.0" layoutY="299.0" prefHeight="14.0" prefWidth="89.0" text="중고" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblproduct1" layoutX="28.0" layoutY="322.0" onMouseClicked="#accproduct1" prefHeight="14.0" prefWidth="61.0" text="남성의류" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="412.0" prefHeight="14.0" prefWidth="89.0" text="커뮤니티" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="28.0" layoutY="432.0" prefHeight="20.0" prefWidth="73.0" text="거래후기" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblproduct2" layoutX="111.0" layoutY="322.0" onMouseClicked="#accproduct2" prefHeight="14.0" prefWidth="61.0" text="여성의류" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblproduct3" layoutX="29.0" layoutY="350.0" onMouseClicked="#accproduct3" prefHeight="14.0" prefWidth="61.0" text="게임기기" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblproduct4" layoutX="111.0" layoutY="350.0" onMouseClicked="#accproduct4" prefHeight="14.0" prefWidth="61.0" text="생활용품" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblboard" layoutX="111.0" layoutY="432.0" onMouseClicked="#accboard" prefHeight="14.0" prefWidth="70.0" text="자유게시판" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="21.0" layoutY="471.0" prefHeight="16.0" prefWidth="46.0" text="정보" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="29.0" layoutY="491.0" prefHeight="20.0" prefWidth="69.0" text="내가쓴글" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="labelinfo" layoutX="112.0" layoutY="491.0" onMouseClicked="#accInfo" prefHeight="14.0" prefWidth="70.0" text="회원정보" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="Lableupdate" layoutX="29.0" layoutY="510.0" onMouseClicked="#accupdate" prefHeight="14.0" prefWidth="61.0" text="회원수정" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="delete" layoutX="112.0" layoutY="511.0" onMouseClicked="#delete" prefHeight="14.0" prefWidth="61.0" text="회원탈퇴" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="585.0" prefHeight="20.0" prefWidth="62.0" text="관리자" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="record" layoutX="118.0" layoutY="586.0" prefHeight="14.0" prefWidth="28.0" text="통계" textFill="#ffaaaa">
+               <font>
+                  <Font name="HCR Dotum" size="14.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="101.0" layoutY="394.0" startX="-100.0" stroke="#ffaaaa" strokeMiterLimit="20.0" />
+            <Line endX="100.0" layoutX="100.0" layoutY="557.0" startX="-100.0" stroke="#ffaaaa" strokeMiterLimit="20.0" />
+            <Line endX="104.0" endY="706.0" layoutX="97.0" layoutY="14.0" startX="105.99998474121094" startY="-14.0" stroke="#ffaaaa" strokeMiterLimit="20.0" strokeWidth="5.0" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
