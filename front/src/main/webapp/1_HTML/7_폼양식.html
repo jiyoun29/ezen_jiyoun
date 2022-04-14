@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>폼 양식</title>
+</head>
+<body>
+	<!--
+	폼form 양식 : 사용자에게 입력, 선택 할 수 있는 서식 
+		input : 입력 상자
+			*속성
+			1. type : 입력타입[형식]
+				text : 문자입력
+				password : 비밀번호입력(가려짐)
+				radio : 동그라미 버튼 (복수x
+				button : 이벤트 버튼 (복수o
+				submit : 보내기
+				reset : 다시 쓰기
+				color : 색상
+				date : 날짜 선택
+				datetime-local : 날짜/시간선택
+				month : 월 선택
+				time : 시간 선택
+				week : 주 선택
+				email : 이메일 형식(@ 포함)
+				number : 숫자 입력 상자
+				range : 범위 스크롤
+				
+			2. value : 값 넣기
+			3. readonly : 읽기 모드
+			4. placeholder : 가이드 입력
+			5. autofocus : 포커스[마우스커서] 사용
+			6. disabled : 사용 금지
+			7. checked : 선택된 상태
+			8. list : select와 비슷. datelist에 name을 list로 넣어줘야 이용 가능
+					datelist : 리스트 상자 값 목록
+					1.option value = "값"
+			
+		select : 목록 상자
+			1.option : 목록 값 추가
+		textarea : 긴 글 상자
+			1. rows : 가로글자수
+			2. cols : 세로글자수
+	 -->
+	 
+	 
+	 <form> <!-- 양식, 서식 -->
+
+	 	<b>이름</b> : <input type="text" value="유재석" readonly="readonly"> <br>
+	 	<b>아이디</b> : <input type="text" placeholder="아이디 입력" autofocus="autofocus"> <br>
+	 	<b>회원등급</b> : <input type="text" value="일반" disabled="disabled"> <br>
+	 	<b>비밀번호</b> : <input type="password" > <br>
+	 	<br>
+	 	<b>선택버튼1(복수x)</b> : <input type="radio" name="email"> 예 <input type="radio" name="email">아니오 <br>
+	 								<!-- name 값을 똑같이 해야 하나로 인식 -->
+	 	<b>선택버튼2(중복o)</b> : <input type="checkbox" name="item1"> 뉴스
+	 					      <input type="checkbox" name="item2" checked="checked"> 드라마
+	 						  <input type="checkbox" name="item3"> 스포츠 <br>
+	 	<br>				  
+	 	<b>목록상자</b> : <input type="text"> @ <select>
+	 					<option> 직접입력 </option>
+	 					<option> naver.com </option>
+	 					<option> kakao.com </option></select> <br>
+	 	<br>			
+	 	<b>자기소개</b> : <textarea rows="3" cols="50"></textarea> <br>
+	 					<!-- 행(가로글자수)   열(세로글자수) -->
+	 	<br>				
+	 	<b>버튼</b> : <input type="button" value="버튼">
+	 				<input type="submit" value="폼 전송버튼">
+	 				<input type="reset" value="다시 쓰기"> <br>
+	 	<br>
+	 	<b>색상</b> : <input type="color"> <br>
+	 	<br>
+	 	<b>날짜</b> : <input type="date"> <br>
+	 	<b>날짜/시간</b> : <input type="datetime-local"> <br>
+	 	<br>
+	 	
+	 	<b>이메일</b> : <input type="email"> <br>
+	 	<b>월단위</b> : <input type="month"> <br>
+	 	<b>시간단위</b> : <input type="time"> <br>
+	 	<b>주단위</b> : <input type="week"> <br><br>
+	 	
+	 	<b>숫자범위</b> : <input type="number" min="0" max="10"> <br>
+	 	<b>범위</b> : <input type="range" min="0" max="100" step="10"> <br>
+	 					<!--  10단위로 증가  -->
+	 	<br>
+	 	
+	 	<b>리스트</b> : <input list="list">
+	 				<datalist id="list">
+	 					<option value="네이버">
+	 					<option value="다음">
+	 					<option value="카카오">
+	 					<option value="구글">
+	 				</datalist>
+	 				 <br>
+
+	 	<br>
+
+	 </form>
+
+
+</body>
+</html>

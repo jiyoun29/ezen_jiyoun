@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+	<style type="text/css">
+	/* 웹폰트 사이트 : 눈누 홈페이지 */
+	@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}	
+
+	@font-face {
+    font-family: 'SimKyungha';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SimKyungha.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
+	
+	/* css 주석처리 */
+	/* 선택자 {속성명} */
+	/* *{ 선택자 */
+	/* {font-family : "궁서"; color:blue;} */
+	/* */
+	
+	
+	h3{ /*h3태그를 선택해서 꾸미기*/
+	font-family: LeeSeoyun;
+	text-decoration: overline line-through underline;
+					 /*윗줄    취소선 			밑줄*/
+	text-align: center; /*폰트 정렬*/
+	text-shadow: 3px 3px 1px gray;
+			/*   x축  y축  깊이  색상*/		
+	}
+	
+	p{ /*p태그를 선택해서 꾸미기*/
+	font-family: SimKyungha; 
+	text-align:center;
+	color:white;
+	background-color: gray;
+	/*배경색*/
+	line-height: 200%;
+	/*줄간격[기본값: 100%]*/
+	font-size: 10px;
+	/*폰트크기*/
+	font-style: italic; 
+	/*기울기*/
+	font-weight: bold;
+	/*굵기*/
+	
+	letter-spacing: 2px;
+	/*글자 간격[자간]]*/
+	
+	word-spacing:5px;
+	/*단어간격[어간]*/
+	
+	}
+	
+	
+	a{ /*a태그를 통해 꾸미기*/
+	text-decoration: none; /*밑줄 제거*/
+	font-size : 10px;
+	color: black;
+	}
+	
+	a:hover { /*a태그에 마우스를 올렸을 때*/
+		color: lightgrey;	
+	}
+	
+	a:visited { /*a태그를 클릭한 기록이 있으면*/
+		color: teal;
+	}
+	
+	a:active { /*a태그에 클릭 했을 때*/
+		color:cadetblue;
+	}
+	
+	</style>
+
+
+</head>
+<body>
+
+	<!-- 
+		선택자{ 속성명 = 값 }
+			1. font-family : 글꼴명	: 글꼴
+			2. color : 색상 			: 글색상
+			3. text-decoration
+				overline			: 윗줄
+				underline			: 밑줄
+				line-through 		: 취소선
+			4. text-align			: 텍스트 정렬 
+				center : 가운데 정렬
+				left : 왼쪽 정렬
+				right : 오른쪽 정렬
+			5. text-shadow : x축 y축 깊이 색상		: 글꼴 그림자
+			6. line-height : % 	: 줄간격
+			7. letter-spacing 	: 자간
+			8. word-spacing		: 어간
+			9. font-size 		: 글자 크기
+			10. font-style : italic		[ 글자 기울기 ]
+			11. font-weight : bold 		[ 글자 굵게 ]
+			12. a태그 이벤트 선택자
+				a:hover  	/* a태그에 마우스를 올렸을때 */
+				a:active 	/* a태그 클릭했을때 */
+				a:visited 	/* a태그에 클릭한 기록이 있으면 */
+	 -->
+		
+					
+	
+
+	<h3> 불온한 검은 피 </h3>
+
+	<p>칠월의 길엔 언제나 내 체념이 있고 <br> 이름조차 잃어버린 흑백영화가 있고 <br> 빗물에 쓸려 어디론가 가 버린 잊은 그대가 있었다. </p>
+	<p>여름날 나는 늘 천국이 아니고, <br> 칠월의 나는 체념뿐이어도 좋을 것. </p>
+	<p>모두 다 절망하듯 쏟아지는 세상의 모든 빗물. <br> 내가 여름을 얼마나 사랑하는지 </p>
+	
+	
+	<a href="https://m.blog.naver.com/PostView.naver?isHttpsRedirect=true&blogId=soyoung7_7&logNo=221066105715">더보기</a>
+	
+	
+
+</body>
+</html>
