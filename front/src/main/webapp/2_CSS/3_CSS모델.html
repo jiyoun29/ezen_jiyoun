@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>CSS 모델</title>
+
+	<style type="text/css">
+	/* css 작성을 위해 태그 오픈
+	선택자{속성명 = 값 ;} */
+	
+	@font-face {
+    font-family: 'SimKyungha';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SimKyungha.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
+	
+	h1{font-family: SimKyungha; text-align: center; 	color:lightseagreen;
+	}
+	
+
+	p{ font-size: 10px; font-family: SimKyungha; text-align: center;
+	color:lightseagreen;
+	border : solid 5px paleturquoise;
+	/* 테두리 :   실선  굵기   색상*/
+	margin: 20px;	/*보더 기준 바깥(테두리)여백*/ 
+	padding: 20px;	/*보더 기준 안쪽(테두리) 여백*/
+	
+	margin:40px; 
+	}
+	
+	
+	h2{ text-align: center;  color:lightseagreen; font-family: SimKyungha;
+		border-top: solid 2px skyblue;		/*상단 테두리*/
+		border-bottom: dotted 2px skyblue; /*아래 테두리-dotted:점*/ 
+		border-right: double 2px lightblue; /*오른쪽 테두리 이중선*/
+		border-left: dashed 2px lightblue; /*왼쪽 테두리 점(대시)선*/
+		border-radius: 20px; /*모서리 둥글게*/
+		box-shadow: -10px -10px 20px lightsteelblue; /*박스 그림자. x,y축*/
+					/*x축	y축	깊이    색상*/
+					
+		margin:40px;  
+	}
+	
+	
+	h3{ text-align: center;  color:lightseagreen; font-family: SimKyungha;
+	border: solid 1px darkcyan; 
+	margin-top: 40px; /*위 바깥 여백*/
+	margin-right: 70px; /*오른쪽 바깥 여백*/
+	margin-left: 70px; /*왼쪽 바깥 여백*/
+	margin-bottom: 30px; /*아래 바깥 여백*/
+	
+	margin: 40px 50px 70px 50px;
+	/*한꺼번에 넣을때 위 우 밑 좌*/
+	margin: 40px 50px;
+	/*		위/아래 왼/오*/
+	margin:40px;
+	/*상하좌우 싹다*/
+	
+	padding-top: 40px; /*방향+안쪽 여백*/
+	padding-bottom: 40px;
+	padding-left: 20px;
+	padding-right: 20px; 
+	
+	padding: 40px 20px 40px 20px;
+			/*위   오른  아래   왼*/
+	padding: 40px 50px;
+		/*위/아래   왼/오*/
+	padding: 40px;
+		/*상하좌우 전부*/
+	} 
+	
+	</style>
+
+
+</head>
+<body>
+	
+	<h1> 박스 모델 </h1>
+	
+	<p> 하늘에선 비만 내렸어 <br>
+	뼈 속까지 다 젖었어 <br>
+	얼마 있다 비가 그쳤어 <br>
+	대신 눈이 내리더니 <br>
+	영화서도 볼 수 없던 눈보라가 불 때 <br>
+	너는 내가 처음 봤던 눈동자야 </p> <br>
+	<h2> 경계선 </h2>
+	<h3> 마진 </h3>
+	
+	
+</body>
+</html>

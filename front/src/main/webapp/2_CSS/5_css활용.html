@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>CSS활용</title>
+
+	<style type="text/css">
+	
+	@font-face {
+    font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}	
+	
+	body{ font-family: LeeSeoyun;
+		background-image: url("back.jpg");
+		/*배경 이미지 적용*/
+		color :	seagreen;
+	}
+	
+	/*선택자 여러 선택시 선택자명1,명2{} */
+	
+	div,span { font-family: LeeSeoyun;
+	border: dashed 3px palegreen;
+	width: 500px; /*가로 사이즈, 기본값 100%*/
+	height: 400px;	}
+	/*span 태그에는 가로세로사이즈 적용x*/
+	
+	#t1{ background-color: lightyellow; }
+	#t2{background-color: lightcyan;} 
+	#t3{background-color: moccasin;  }
+
+
+	table, th, td{
+		border: solid 2px yellowgreen;
+		background-color: seashell;	}
+		
+	table{ border-collapse: collapse; /* 테두리 병합 */
+	margin: 20px; /*div 태그 안에 속해 있는 테이블*/ 
+	/*div와 table 사이 여백*/
+	} 
+	
+	th{ padding: 10px;
+	background-color: #eeeeee; 
+	}
+	
+	td{ padding: 10px; text-align: center;}
+
+	.col1{ width: 50px }
+	.col2, .col3{ width: 80px; }
+	
+	</style>
+
+</head>
+<body>
+
+	<h3> 배경 이미지 </h3>
+		<div id="t1"> <!-- 한줄 차지 박스 모델 -->
+		안녕하세요</div>
+		
+	<h3> 테이블 </h3>
+	
+		<div id="t2"> 환상의 나라 릴리랜드 
+		<br>
+		
+		<table> 
+			<tr>
+				<th class="col1">종류</th> <th class="col2">대인</th><th class="col3">소인</th> <th class="col4">비고</th>
+			</tr>
+			<tr>
+				<td>주간권</td> <td>20,000원</td> <td>10,000원</td> <td rowspan="3">공원 입장 및 놀이공원 이용<br>(일부 놀이기구 별도 요금)</td>
+			</tr>
+			<tr>
+				<td>야간권</td> <td>30,000원</td> <td>50,000원</td> 
+			</tr>
+			<tr>
+				<td>2일권</td> <td>100,000원</td> <td>120,000원</td>
+			</tr>
+			
+		</table>
+		
+		</div>
+		<br><br><br>
+		<span id="t3"> 안녕하세요3 </span>
+		
+		
+	
+</body>
+</html>
