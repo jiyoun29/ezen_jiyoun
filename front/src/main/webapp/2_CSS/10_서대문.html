@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>서대문</title>
+
+	<style type="text/css">
+	
+	@font-face {  font-family: 'LeeSeoyun';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/LeeSeoyun.woff') format('woff');
+    font-weight: normal;  font-style: normal;}	
+	
+	*{font-family: LeeSeoyun;
+		border: solid 1px  #ffffff; text-align: center;}	
+	
+	#tophd{background: #ffffff; }
+	#tophd2{width:1280px; background-color: darkseagreen; text-align: right;}
+	
+	#bothd{width: 1280px; margin: 0 auto;}
+
+	#logo{width:280px; height : 50px; float: left;}
+	#menu{width:750px; height : 50px; float: left;}
+	#search{width:230px; height:50px; float: left; }
+	
+	#view{clear: both; width: 1280px; margin: 0 auto;}
+		/*float 제거*/
+
+	#big{width: 1000px; height: 500px; float: left;}
+	
+	#mainimg{width: 250px; height: 500px; float: right;}
+	
+	#mainbox{clear: both;}
+	
+	
+	
+	ul{ margin: 0px; padding: 0px; } 	/* ul에 여백 기본값 제거 */
+	li{ list-style-type: none; } /* 글머리 제거*/
+	
+	
+	.box{ width: 315px;	height: 200px; float: left; }
+	#footer{ clear: both;}
+		
+	</style>
+	
+</head>
+<body> 
+
+		<div id="header"> <!-- 헤더 -->
+				<div id="tophd"> <!-- 상단 헤더 -->
+					<div id="tophd2"> 로그인 회원가입 사이트맵 </div>
+				</div>
+				
+				
+				<div id="bothd"> <!-- 하단 헤더 -->
+			<div id="logo"><img alt="" src="hd_logo.jpg">	<!-- 로고 --></div>
+			<div id="menu">소개 안내 전시 교육/문화 온라인 박물관 소식/홍보 참여</div>
+			<div id="search"><input type="text"><button>검색</button></div>
+				</div>
+				
+		</div>	<!-- 헤더 끝 -->	
+	
+	
+	
+		<div id="view"> <!-- 메인 -->
+			<div id="big"><img alt="" src="big.jpg"></div> <!-- 메인 이미지 -->
+			
+				<ul id="mainimg">
+					<li> <a href="#"> <img alt="" src="sh1.jpg"> </a> </li>
+					<li> <a href="#"> <img alt="" src="sh2.jpg"> </a> </li>
+					<li> <a href="#"> <img alt="" src="sh3.jpg"> </a> </li>
+				</ul>
+		</div>
+
+		<div id="mainbox">
+			<div class="box"> 박스1 </div>
+			<div class="box"> 박스2 </div>
+			<div class="box"> 박스3 </div>
+			<div class="box"> 박스4 </div>
+		</div>
+		
+		
+		<div id="footer">푸터</div>
+
+
+
+</body>
+</html>

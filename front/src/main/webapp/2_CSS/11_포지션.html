@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>포지션</title>
+
+	<style type="text/css">
+
+		#a, #b, #c, #d, #e, #f, #g, #h, #i, #j, #k, #l, #m
+		{width: 100px; height: 60px; background-color: wheat; border: solid 1px salmon; color: slategray;}	
+		/*플로팅은 한줄로 표시할 때 많이 쓴다.*/
+		
+		#b{position: relative; left: 50px; top:30px; } /*하나만 이동 가능*/
+			/*상대 위치 : 현 div 시작점 기준*/
+			
+		#e{position: absolute; left:50px; top:30px;}
+ 				/*절대값이라는 단어*/
+ 			/*절대 위치 : body 시작점 기준*/
+		
+		#pa{width: 350px; height: 200px;
+			border: solid 1px salmon;
+			position: relative; left:50px; top:60px; }
+		/*부모태그와 상위 태그가 relative가 있을 때*/
+		
+		#h{position: absolute; left:30px; top:40px;}
+		/*상위태그가 relative 인 경우 상위 태그 기준으로 절대 위치*/
+		
+		
+		
+		#pa2{width: 350px; height: 200px;
+			border: solid 1px salmon;
+			position: relative; left:200px; top:60px; }
+		/*부모태그와 상위 태그가 relative가 있을 때*/
+		
+		#h{position: absolute; left:30px; top:40px;}
+		/*상위태그가 relative 인 경우 상위 태그 기준으로 절대 위치*/
+		
+		#k{position: fixed; top:30px; right:50px;}		
+				
+	</style>
+
+</head>
+<body>
+
+	<!-- float : left; = 앞태그 왼쪽에 붙이기
+		float : right; = 앞태그 오른쪽에 붙이기
+		clear : both; = 플로팅 제거
+		
+		포지션: relative 상대 위치 고정
+				absolute 절대 위치 고정
+				fixed 위치 고정 -->
+
+	
+	<h3> 상대 위치 지정 </h3>
+		<div id="a"> 요소a </div>
+		<div id="b"> 요소b </div>
+		<div id="c"> 요소c </div>
+
+	<h3> 절대 위치 지정 </h3>
+		<div id="d"> 요소d </div>
+		<div id="e"> 요소e </div>
+		<div id="f"> 요소f </div>	
+
+	<h3>부모 : 상대 위치 (relative)일 경우 절대 위치</h3>
+	<div id="pa"> <!-- 부모라는 상위 태그가 있을 때 -->
+		<div id="g"> 요소g </div>
+		<div id="h"> 요소h </div>
+		<div id="i"> 요소i </div>		
+	</div>
+
+
+	<h3>부모 : 상대 위치 (absolute)일 경우 절대 위치</h3>
+	<div id="pa2">
+		<div id="j"> 요소 j </div>
+		<div id="k"> 요소 k </div>
+		<div id="l"> 요소 l </div>	
+	</div>
+
+	<div id="m"> 위치 고정 </div>
+	
+</body>
+</html>

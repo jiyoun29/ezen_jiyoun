@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>레이아웃</title>
+
+	<style type="text/css">
+	
+		#box1, #box2, #box3{
+			width: 300px; border: solid 1px cornflowerblue;
+			margin: 0 auto; padding: 20px;
+		}
+		
+		#box2{ text-align: right; } /*박스 내용물 정렬*/
+		#box3{ text-align: center; }
+		
+		#a, #b, #c, #d{
+			width: 100px; height: 50px; margin: 10px; color : cadetblue;
+			text-align: center; border: solid 3px orange;
+		}
+		
+		#a, #b{ background-color: beige; }
+		#c{ float : right; background-color: burlywood; } /*중요!!! 박스끼리 겹치기 가능*/
+		#d{ color : white; float : left; background-color: darksalmon; } /*위와 비교*/
+		#e{ float: left; }
+	
+		#h3{ clear: both; }
+	
+	
+	</style>
+	
+</head>
+<body>
+
+
+	<!-- 
+		float : left = 왼쪽 배치
+		float : right = 오른쪽 배치
+		clear : both = float 제거
+	 -->
+
+
+
+	
+	<div id="box1">	안녕하세요	</div>	
+	
+	<div id="box2">	반갑습니다	</div>
+	
+	<div id="box3">	<img alt="" src="back.jpg" width="100px;"> </div>	
+	
+	<div id="a"> 요소a </div>
+	<div id="b"> 요소b </div>
+	<div id="c"> 요소c </div>
+	<div id="d"> 요소d </div>
+
+	<div id="e"> <img alt="" src="java.jpg" width="100px;"> </div>
+	
+		<h3> 이미지입니다. </h3>
+		<p> 이미지 내용 입니다. </p>
+	
+	
+	
+	
+</body>
+</html>
