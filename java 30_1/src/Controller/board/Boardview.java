@@ -26,6 +26,30 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Boardview implements Initializable {
 
+
+    @FXML
+    private Button btnback;
+
+    @FXML
+    private Button btndelete;
+
+    @FXML
+    private Button btnrewrite;
+
+    @FXML
+    private Button btnupdate;
+
+    @FXML
+    private Label lbldate;
+
+    @FXML
+    private Label lblview;
+
+    @FXML
+    private Label lblwrite;
+    
+    
+    
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		
@@ -55,32 +79,7 @@ public class Boardview implements Initializable {
 	}
 	
 	
-
-    @FXML
-    private Button btnback;
-
-    @FXML
-    private Button btndelete;
-
-    @FXML
-    private Button btnrewrite;
-
-    @FXML
-    private Button btnupdate;
-
-    @FXML
-    private Label lbldate;
-
-    @FXML
-    private Label lblview;
-
-    @FXML
-    private Label lblwrite;
     
-    
-    
-    
-
     @FXML
     private TableView<Reply> replytable;
     	//테이블뷰에 넣을 자료형 = 리플
@@ -130,31 +129,7 @@ public class Boardview implements Initializable {
     }
 
     
-    
-    @FXML //글 삭제
-    void delete(ActionEvent event) {
-    	//1. 경고 메시지 알림
-		Alert alert = new Alert(AlertType.CONFIRMATION); //확인, 취소 버튼 타입
-			alert.setHeaderText("정말 지우시겠습니까?");
-			
-			Optional<ButtonType> optional = alert.showAndWait(); //이 메소드의 반환타입은 -> 선택한 버튼
-			// Optional 클래스 : null 객체로 저장하는 클래스
-			
-		if(optional.get() == ButtonType.OK) { //2. 확인 버튼 눌렀을 때
-			
-		
-		 //3. 삭제 처리 (boarddao에서 삭제)
-		BoardDAO.boardDAO.delete(Controller.board.Board.board.getBnum() );
-		
-		
-		//4.페이지 전환
-		Home.home.loadpage("/view/board/board.fxml");
-		
-		}
 
-    }
-		
-    
     
     
     @FXML
@@ -192,6 +167,34 @@ public class Boardview implements Initializable {
     
     
     
+    ////////////////////////////////////
+    
+    
+    @FXML //글 삭제
+    void delete(ActionEvent event) {
+    	//1. 경고 메시지 알림
+		Alert alert = new Alert(AlertType.CONFIRMATION); //확인, 취소 버튼 타입
+			alert.setHeaderText("정말 지우시겠습니까?");
+			
+			Optional<ButtonType> optional = alert.showAndWait(); //이 메소드의 반환타입은 -> 선택한 버튼
+			// Optional 클래스 : null 객체로 저장하는 클래스
+			
+		if(optional.get() == ButtonType.OK) { //2. 확인 버튼 눌렀을 때
+			
+		
+		 //3. 삭제 처리 (boarddao에서 삭제)
+		BoardDAO.boardDAO.delete(Controller.board.Board.board.getBnum() );
+		
+		
+		//4.페이지 전환
+		Home.home.loadpage("/view/board/board.fxml");
+		
+		}
+
+    }
+		
+
+    
     boolean upcheck = true; //수정 버튼 스위치 변수
     @FXML
     void update(ActionEvent event) {
@@ -224,6 +227,7 @@ public class Boardview implements Initializable {
     	}
 
     }
+    
     
     
     
