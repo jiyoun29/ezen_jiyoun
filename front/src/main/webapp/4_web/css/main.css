@@ -5,7 +5,7 @@
 /*링크 기본값 제거*/
 a{text-decoration: none; color:black;}
 a:hover { color : salmon;}
-
+ 
 @font-face {
     font-family: 'SuncheonB';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
