@@ -11,6 +11,7 @@
 	<!--jsp 헤더 파일 끌어오기 -->
 	<%@include file="Header.jsp" %>
 	
+	
 	<br><br><br><br><br><br><br>
 	
 	<div class="container"> <!-- 부트스트랩. 박스권 생성 -->
