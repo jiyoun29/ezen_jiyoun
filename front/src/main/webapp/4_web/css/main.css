@@ -6,13 +6,11 @@
 a{text-decoration: none; color:black;}
 a:hover { color : salmon;}
  
-@font-face {
-    font-family: 'SuncheonB';
+@font-face {  font-family: 'SuncheonB';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-*{font-family: SuncheonB;}
+    font-weight: normal;  font-style: normal;}
+    
+*{font-family: SuncheonB; color:slategray;}
 
 li{ list-style: none;}
 
@@ -27,3 +25,5 @@ li{ list-style: none;}
 
 											/* √Îº“º± */
 .item .price { font-size:12px; color : gray; text-decoration: line-through; }
+
+.titleline{ border-bottom: solid 2px black; width: 200px; margin: 0 auto;}

@@ -33,6 +33,7 @@
 					<a href="#"> <i class="fab fa-twitter fa-3x"></i> </a>
 					<a href="#"> <i class="fab fa-google fa-3x"></i> </a>
 					<a href="#"> <i class="fab fa-github fa-3x"></i> </a>
+					<a href="#"> <i class="fab fa-instagram fa-3x"></i> </a>
 				</div>
 				
 			</div>
