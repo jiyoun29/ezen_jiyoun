@@ -1,0 +1,31 @@
+@charset "EUC-KR";
+
+@font-face {    font-family: 'SuncheonB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2202-2@1.0/SuncheonB.woff') format('woff');
+    font-weight: normal;    font-style: normal;}
+
+*{ font-family:	"Yu Gothic"; }
+
+a{text-decoration: none; color:black;}
+a:hover{color:khaki;}
+ .tophead{	font-size : 12px; margin-left: 20px;}
+ 
+ ul{list-style: none;}
+ 
+ .logo{font-size: 30px; font-weight: 700; margin-bottom: 40px;}
+ .sidebar{position: relative; margin-bottom: 10px; font-size: 13px;} 
+ .sidebar2{text-align: bold; font-size: 14px;}
+ 
+ .sidemenu{position: fixed; left:10px; font-weight: bold;}
+ 
+ 
+ .info{font-size:11px;}
+ .info2{font-style: bold;}
+ 
+ .content{margin-top:80px;}
+ 
+ #scrol{height: 350px;}
+ 
+
+ 
+ 
