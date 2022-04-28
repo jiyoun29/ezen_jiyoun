@@ -1,0 +1,20 @@
+
+*{border: 1px solid green;}
+
+.button{padding:22px 20px; background-color: grey; color: white;}
+.button2{padding:14px 150px; background-color: grey; color: white;}
+
+h3{min-height : 30px; margin : 0px 0 40px 0; text-align: center;}
+
+.login{width: 95%; height: 28px; padding: 2px 2px 2px 7px; border: none; color:#eeeeee;}
+
+.sidebo{font-size: 11px;}
+
+.social{line-height:120%}
+
+#check{margin-top:20px; margin-bottom: 30px;}
+
+span{margin-left: 50px;}
+.nologin{font-size:12px;}
+.nologinmem{background: white; soild:grey; padding: 10px 90px;}
+.center{width: 450px; margin: 0 auto;}

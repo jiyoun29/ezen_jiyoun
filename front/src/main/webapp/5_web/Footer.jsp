@@ -6,7 +6,7 @@
 <meta charset="EUC-KR">
 <title>footer</title>
 	<!-- 사용자정의 css -->
-	<link href="Footer.css" rel="stylesheet" >
+	<link href="css/Footer.css" rel="stylesheet" >
 
 </head>
 <body>

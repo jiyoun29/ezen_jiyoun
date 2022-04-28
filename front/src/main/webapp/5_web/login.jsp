@@ -5,19 +5,9 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-<style type="text/css">
-
-.button{padding:22px 20px; background-color: grey; color: white;}
-.button2{padding:14px 150px; background-color: grey; color: white;}
-h3{text-align: center;}
-.sidebo{font-size: 11px;}
-.social{padding:20px 0 20px 0; magin:0; border:0;}
-span{margin-left: 50px;}
-.nologin{font-size:12px;}
-.nologinmem{background: white; soild:grey; padding: 10px 90px;}
-.center{width: 500px; margin: 0 auto;}
-
-</style>
+	<!-- 사용자정의 css -->
+	<link href="css/login.css" rel="stylesheet" >
+	
 </head>
 <body>
 	<%@include file="Index.jsp" %>
@@ -29,9 +19,9 @@ span{margin-left: 50px;}
 		<br><br><br>
 		<div class="center">
 
-			<table class="col-md-4 offset-2">
+			<table class="col-md-4 offset-2 form-floating mb-3">
 				<tr>
-					<td class="login"> <input type="text" placeholder="아이디"> </td>
+					<td class="login"> <input type="id" placeholder="아이디"> </td>
 					<td id="login" rowspan="2"> <button class="button">LOGIN</button> </td>
 				</tr>
 				<tr>
@@ -39,7 +29,7 @@ span{margin-left: 50px;}
 				</tr>
 			</table>
 			
-			<table class="col-md-8 offset-2">
+			<table class="col-md-8 offset-2" id="check">
 				<tr class="sidebo nav">
 				<td>
 			<input class="form-check-input" type="checkbox" value=""> 아이디 저장
@@ -51,17 +41,17 @@ span{margin-left: 50px;}
 			</table>
 
 		
-		<ul class="social row">
-			<li class="col-md-5">
+		<ul class="social nav justify-content-center">
+			<li>
 			<img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_naver_login.gif" alt="네이버 로그인">
 			</li>
-			<li class="col-md-5">
+			<li>
 			<img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_facebook_login.gif" alt="Facebook으로 로그인">			
 			</li>
-			<li class="col-md-5">
+			<li>
 			<img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_kakao_login.gif" alt="카카오계정 로그인">			
 			</li>
-			<li class="col-md-5">
+			<li>
 			<img src="//img.echosting.cafe24.com/skin/base_ko_KR/member/btn_apple_login.gif" alt="Apple로 로그인">
 			</li>
 			
