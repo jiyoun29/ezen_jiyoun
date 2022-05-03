@@ -4,24 +4,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>main</title>
+<title>Insert title here</title>
 <style type="text/css">
 
-	*{ align-content: center; color:#FFAAAA;}
-	
+*{text-align: center; color:#FFAAAA;}
 </style>
-
-
 </head>
 <body>
 
-	<%@include file = "header.jsp" %>
+	<%@include file = "../header.jsp" %>
 	<div class="container">
-	메인페이지
+		<h3> 회원가입 성공 </h3>
 	</div>
-	<%@include file = "footer.jsp" %>
-
-
+	<%@include file = "../footer.jsp" %>
 
 </body>
 </html>

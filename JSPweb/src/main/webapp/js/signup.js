@@ -6,9 +6,21 @@
 	//jquery식 	id 불러오기 : $("#id명")
 		//keyup() : 해당 id에 키보드가 눌렸을때 [ 입력 되었을 때 ]
 	//라이브러리 설치 : header파일 body 태그에 추가
-		
-$(function(){  //문서가 열리면 해당 코드가 실행
 	
+//	$메소드(function(){코드짜기});
+	//이 양식을 늘 기억할 것
+	
+
+	//입력상자 유효성 확인 체크 배열(통과*5)
+	let pass = [false, false, false, false, false, false, false];
+	//배열[] 대괄호를 쓰면 배열, 안 쓰면 변수
+	//전역변수로 여기저기서 쓰므로 밖에다 뺌
+
+	
+$(function(){  //문서가 열리면 해당 코드가 실행
+
+
+////////////////아이디 체크	
 	$("#mid").keyup(function(){  //mid가 입력될때마다 해당 함수 실행
 
 		//1.html 태그내 값 가져오기
@@ -41,13 +53,17 @@ $(function(){  //문서가 열리면 해당 코드가 실행
 			//id를 보내서 현재 사용중인 아이디인지 체크		
 			//get이나 post로 http 통신에 보낼 수 있음(기본타입은 get)
 				if(result ==1){
-					idcheck.innerHTML="사용중인 아이디입니다."
-				} else {idcheck.innerHTML="사용 가능한 아이디입니다."}
+					idcheck.innerHTML="사용중인 아이디입니다.";
+					pass[0] = false;
+				} else {idcheck.innerHTML="사용 가능한 아이디입니다.";
+					pass[0] = true;}
 				}
 			}); //끝
 			
 		} else {
-			idcheck.innerHTML = "5~15 길이의 숫자+영문으로 입력해주세요.";		
+			idcheck.innerHTML = "5~15 길이의 숫자+영문으로 입력해주세요.";
+			pass[0] = false;
+			//유효성검사와 중복체크 모두 완료 	
 		}
 
 	});
@@ -64,11 +80,14 @@ $(function(){  //문서가 열리면 해당 코드가 실행
 			if( mpw != mpwcheck ){ // 비밀번호 와 비밀번호체크 와 다르면
 				// equals(x)  //  != ( o )
 			$("#mpwc").html("패스워드가 서로 다릅니다.");
+				pass[1] = false;
 			}else{
 				$("#mpwch").html("사용 가능한 비밀번호 입니다.");
+				pass[1] = true; pass[2] = true;
 			}
 		}else{ // 정규현식 다르면
 			$("#mpwch").html("영소문자 5~15 사이로 입력해주세요!");
+			pass[1] = false;
 		}
 	}); // keyup end 
 	
@@ -86,11 +105,14 @@ $(function(){  //문서가 열리면 해당 코드가 실행
 				if( mpw != mpwcheck ){ // 비밀번호 와 비밀번호체크 와 다르면
 					// equals(x)  //  != ( o )
 				$("#mpwch").html("패스워드가 서로 다릅니다.");
+					pass[2] = false;
 				}else{
 					$("#mpwch").html("사용 가능한 비밀번호 입니다.");
+					pass[2] = true; pass[1] = true;
 				}
 			}else{ // 정규현식 다르면
 				$("#mpwch").html("영소문자 5~15 사이로 입력해주세요!");
+					pass[2] = false;
 			}
 	}); // keyup end 
 	
@@ -105,8 +127,10 @@ $(function(){  //문서가 열리면 해당 코드가 실행
 		let namej = /^[가-힣]{2,10}$/; //정규표현식. 한글만 2~10 정규표현식
 		
 		if(namej.test(mname)){ $("#namecheck").html("사용 가능한 이름입니다.");
-		} else { $("#namecheck").html("한글 2~10사이만 입력 가능합니다.");}
-	});
+		pass[3] = true;
+		} else { $("#namecheck").html("한글 2~10사이만 입력 가능합니다.");
+		pass[3] = false;}
+	}); // keyup end 
 	
 	
 	
@@ -119,13 +143,106 @@ $(function(){  //문서가 열리면 해당 코드가 실행
 		let phonej = /^010-([0-9]{4})-([0-9]{4})$/; //정규표현식. 
 		
 		if(phonej.test(mphone)){$("#phonecheck").html("사용 가능한 번호입니다.");
-		} else { $("#phonecheck").html("010-0000-0000 양식에 맞춰주세요.");}	
-	}); 
+		pass[4] = true;
+		} else { $("#phonecheck").html("010-0000-0000 양식에 맞춰주세요.");
+		pass[4] = false;}	
+	});  // keyup end 
 	
 	
+	
+	//이메일 체크
+	$("#memail").keyup(function(){ //# 잘 넣기
+		let memail = $("#memail").val();
+		let memailaddress = $("#memailaddress").val();
+		
+		//중복체크
+		if(memailaddress == " "){ //공백이면
+			$("#emailcheck").html("이메일 주소를 입력해주세요.");
+			pass[5] = false;
+		} else { //공백이 아니면
+		let emailj = /^[a-zA-Z0-9]{3,20}$/;
+		if(emailj.test(memail)){ //중복체크
+		
+		//합치기
+		let email = memail+"@"+memailaddress;
+		
+		//합친걸 달러 아잣트로 전송
+		$.ajax({
+			url : "../emailcheck",
+			date : { "email" : email }, //{변수명, 값(값은 큰따옴표x)}
+			success : function(result){ //성공했으면
+				if(result == 1){
+					$("#emailcheck").html("사용 중인 이메일 입니다.");			
+					pass[5] = false;
+				} else {
+					$("#emailcheck").html("사용 가능한 이메일 입니다.");			
+					pass[5] = true;				
+				}
+			}
+		}); //ejax 끝
+		
+		//여기까지 만들고 서블릿 만들러감(자바에 서블릿에 이메일체크 생성)
+			}else{
+				$("#emailcheck").html("이메일 형식이 아닙니다.");  pass[5] = false;
+			} }
+	}); //keyup end
+	
+	
+	//이메일 주소 목록 상자 선택시
+	$("#emailselect").change(function(){
+		//목록 상자 내 값이 변경 되었을 때 : change
+		
+		let emailselect = $("#emailselect").val();
+		if(emailselect ==""){ //공백이 아니면
+			$("#memailaddress").val("");
+			$("#memailaddress").attr("readonly", false);	 //읽기모드 해제	
+		} else { $("#memailaddress").val(emailselect); //val -> value 값
+				$("#memailaddress").attr("readonly", true); } //attr -> attribute 속성
+								//수정할 수 없게 막기
+	}); //keyup end
+	
+	
+	
+	
+	//주소체크
+	$("#sample4_detailAddress").keyup(function(){
+			
+		let address1 = $("#sample4_postcode").val();
+		let address2 = $("#sample4_roadAddress").val();
+		let address3 = $("#sample4_jibunAddress").val();
+		let address4 = $("#sample4_detailAddress").val();
+		
+		if(address1 =="" || address2 =="" ||
+			address3 =="" || address4 =="" ){
+				$("#addresscheck").html("모든 주소를 입력해주세요.");
+				pass[6] = false;
+			} else {$("#addresscheck").html("사용 가능한 주소입니다.");
+				pass[6] = true;}
+		
+	});
 	
 	
 }); // 문서 열리면 해당 코드가 종료 
+
+
+
+//폼 전송 메소드
+
+	function signup(){ //pass 배열이 모두 true 이면 폼 전송
+		let check = true;
+		for(let i = 0; i<pass.length ; i++){
+			if(pass[i] == false) check = false;
+			//하나라도 false이면 전송x
+		}	
+			//js에서 form 전송하는 방법****
+		 if(check) document.getElementById("signupform").submit();
+		 	//모두 true라면 submit으로 온다.
+	//만일 없으면 알림창
+		else{alert("필수 입력 사항이 입력되지 않았습니다.");}
+		//하나라도 false이면 여기로 온다.	
+	}
+
+
 
 
 //다음 api js

@@ -1,6 +1,13 @@
 package dto;
 
 public class member {
+	
+	//주소가 아닌 값을 알고 싶다면 오버라이딩을 여기에 만든다(toString으로)
+	//소스에서 toString 선택 가능
+	
+	
+	
+	
 	private int mno;
 	private String mid;
 	private String mpassword;
