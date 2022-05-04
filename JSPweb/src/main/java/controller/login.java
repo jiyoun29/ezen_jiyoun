@@ -59,16 +59,12 @@ public class login extends HttpServlet {
 			//구현
 			session.setAttribute("login", mid); //2.세션에 값 저장
 							// 세션명, 데이터
-			System.out.println("페이지전환불가");
 			//페이지 전환
 			response.sendRedirect("/JSPweb/main.jsp");
 									// 아이디 혹은 비밀번호가 다름 //변수보내기
 		} else if (result == 2) { 
-			System.out.println("j");
-			response.sendRedirect("/JSPweb/member/login.jsp?result=2");	
-		System.out.println("페이지전환불2"); }
-		else {response.sendRedirect("/JSPweb/member/error.jsp"); 
-		System.out.println("페이지전환불가3");}
+			response.sendRedirect("/JSPweb/member/login.jsp?result=2");	 }
+		else {response.sendRedirect("/JSPweb/member/error.jsp");}
 				//db오류
 		doGet(request, response);
 	}

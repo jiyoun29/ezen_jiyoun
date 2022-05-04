@@ -7,13 +7,12 @@
 <title>가입</title>
 <style type="text/css">
 
-	#box{text-align: center;}
 	
 	*{color: #FFAAAA;}
 	
 	.sign{width: 100px; height: 50px; padding:10px 10px;}
 	button{background-color: white; border: solid 1px #FFAAAA;}
-
+	.back{ width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);text-align: center;	}
 
 
 </style>
@@ -21,8 +20,8 @@
 <body>
 	<%@include file = "../header.jsp" %>
 	
-	<div class="container col-md-6 offset-3" id="box">
-	
+	<div class="container col-md-6">
+		<div class="back">
 		<h3>회원가입 페이지</h3>
 		<form id="signupform" action="../signup" method="post">
 			아이디<br><input type="text" id="mid" name="mid" placeholder="user id"> <br>
@@ -64,7 +63,7 @@
 			<button onclick="signup()" type="button" class="sign"> 가입하기</button>
 		</form>
 		
-
+	</div>
 	</div>
 
 

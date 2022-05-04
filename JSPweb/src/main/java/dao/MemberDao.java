@@ -77,5 +77,106 @@ public class MemberDao extends Dao { //자식클래스로 객체 생성 시 부�
 	
 	
 	
+	///////////////////////////////// 5/4
+	
+	//개별 회원정보 출력 [인수:세션에 저장된 회원id]
+	public member getMember(String mid) {
+		
+		//String sql = "select * from member where mid = ?";
+		String sql = "select * from memdb where mid = '"+mid+"'";
+		
+		try { //패스워드는 제외
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			//검색된 레코드의 모든 필드의 값을 객체화
+			if(rs.next()) {	//패스워드는 제외이므로 null
+				member member = new member(rs.getInt(1), rs.getString(2), null,
+						rs.getString(4), rs.getString(5),
+						rs.getString(6), rs.getString(7),
+						rs.getInt(8), rs.getString(9));
+				//반환 필수
+				return member; //
+			}
+			
+		} catch (Exception e) {System.out.println(e);} return null;
+	
+	}
+	
+	
+	
+	
+	//패스워드 확인 메소드
+	public boolean passwordcheck(String mid, String mpassword) {
+		
+		String sql = "select * from memdb where "
+				+ "mid = '"+mid+"' and mpassword = '"+mpassword+"'";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) return true; //아이디와 비번이 동일하면 true(1)
+			
+		} catch (Exception e) {System.out.println(e);} 
+		
+		return false;//아이디와 비번이 동일하지 않으면 true(2)
+	}
+	
+	
+	
+	//회원 삭제 메소드
+	public boolean delete(String mid) {
+		String sql = "delete from memdb where mid = '"+mid+"'";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate(); return true;			
+		} catch (Exception e) {System.out.println(e);} 
+		return false;
+	}
+	
+	
+	
+	//회원 수정 메소드
+	public boolean update(member member) {
+		
+		try {
+		if(member.getMpassword() == null){ // 패스워드 변경이 없을때 
+			String sql = "update memdb set mname=?,  mphone=?, memail=?, maddress=? where mno=?";
+				ps = con.prepareStatement(sql);
+				ps.setString( 1 , member.getMname() );
+				ps.setString( 2 , member.getMphone() );
+				ps.setString( 3 , member.getMemail() );
+				ps.setString( 4 , member.getMaddress() );
+				ps.setInt( 5, member.getMno() );
+		}
+		else {	// 패스워드가 변경이 있을때 
+	
+		String sql = "update memdb set mname=?, mpassword=?, mphone=?, memail=?, maddress=? where mno=?";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, member.getMname());
+			ps.setString(2, member.getMpassword());
+			ps.setString(3, member.getMphone());
+			ps.setString(4, member.getMemail());
+			ps.setString(5, member.getMaddress());
+			ps.setInt(6, member.getMno());
+		}
+			ps.executeUpdate(); return true;
+		} catch (Exception e) {System.out.println("패스워드변경오류"+e);} 		return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

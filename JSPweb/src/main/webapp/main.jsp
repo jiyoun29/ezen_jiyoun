@@ -5,22 +5,27 @@
 <head>
 <meta charset="UTF-8">
 <title>main</title>
+
 <style type="text/css">
 
-	*{ align-content: center; color:#FFAAAA;}
+	*{ align-content: center; color:#FFAAAA; text-align: center;}
+	
+	.back{background: linear-gradient(to top, #FFC9C9, white);	}
 	
 </style>
-
+<link rel="stylesheet" href="/css/main.css">
 
 </head>
 <body>
 
+<div class="back">
 	<%@include file = "header.jsp" %>
 	<div class="container">
-	메인페이지
+		<div style="width: 1280px; height: 720px;">
+		</div>
 	</div>
 	<%@include file = "footer.jsp" %>
-
+</div>
 
 
 </body>

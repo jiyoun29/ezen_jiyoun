@@ -26,26 +26,44 @@
 
 	<!-- 헤더페이지[모든페이지에서 사용되기 때문에 절대경로.]  -->
 	<!-- 반드시 최상위 경로로 적을 것 -->
-	<div class="container col-md-3 offset-9">	
+	<div class="container">	
 		<!-- 공통 -->
-		<a href="/JSPweb/main.jsp">HOME</a>
+
+		<h3><a href="/JSPweb/main.jsp">HOME</a></h3><br>
+		<a href="#"> BIG SIZE </a>
+		<a href="#"> MUSCLE-FIT </a>
+		<a href="#"> 1+1 이벤트 </a>
+		<a href="#"> 아우터 </a>
+		<a href="#"> 상의 </a>
+		<a href="#"> 바지 </a>
+		<a href="#"> 슈즈 </a>
+		<a href="#"> 악세사리 </a>
+		<a href="#"> BEST </a>
+		<a href="#"> 트레이닝 </a>
+		<a href="#"> 모델처럼입자 </a>
+		<a href="#"> 50% 할인 </a><br>
+
 		
-		<!-- 로그인이 안 된 상태 -->	
+		<input type="text" style="text-align: left;"><button>검색</button> 
+		<a href="search.jsp"><img src="../img/cart.png" width="30px;"></a>	
+		
+		
+		<!-- 로그인이 안 된 상태 = 만약에 세선이 없으면-->	
 		<% if(loginid ==null){ %>
-		
+		<div class="col-md-3 offset-9">	
 		<a href="/JSPweb/member/login.jsp">로그인</a>
 		<a href="/JSPweb/member/signup.jsp">회원가입</a>
-		
+		</div>
 		<% } %>
 		
-		<!-- 로그인이 된 상태 -->
+		<!-- 로그인이 된 상태 = 만약에 세션이 있으면-->
 		<% if(loginid != null){ %>
-		
+		<div class="col-md-5 offset-7">	
 		<span> <%=loginid %>님 </span>
 		
 		<a href="/JSPweb/logout">로그아웃</a> <!-- 서블릿으로 생성 -->
-		<a href="/JSPweb/member/memberinfo.jsp">회원정보</a>
-		
+		<a href="/JSPweb/member/myshopping.jsp">나의쇼핑</a>
+		</div>
 		<% } %>
 		
 	</div>

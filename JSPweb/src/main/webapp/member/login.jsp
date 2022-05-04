@@ -7,13 +7,14 @@
 <title>로그인</title>
 <style type="text/css">
 	*{color:#FFAAAA; text-align: center;}
-
+	.back{ width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);	}
 	.box{width: 100px; height: 50px; padding:10px 10px; background-color: white; border: solid 1px #FFAAAA;}
 </style>
 </head>
 <body>
 	<%@include file = "../header.jsp" %>
 	<div class="container col-md-4 offset-4">
+	<div class="baxk">
 	<br>
 		<h3>로그인 페이지</h3>
 	<br>
@@ -36,7 +37,7 @@
 			%>
 			
 		</form>
-	
+	</div>
 	</div>
 	
 	<%@include file = "../footer.jsp" %>

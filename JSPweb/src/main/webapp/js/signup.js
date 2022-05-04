@@ -243,6 +243,16 @@ $(function(){  //문서가 열리면 해당 코드가 실행
 	}
 
 
+	//비밀번호 변경
+	function passwordchange(){
+		$("#passwordbox").css("display","block");
+	
+}
+
+
+
+
+
 
 
 //다음 api js
