@@ -12,7 +12,7 @@
 	<style type="text/css">
 	
 	a{text-decoration: none; color:#FFAAAA; }
-	
+	.box{background-color: white; border: solid 1px #FFAAAA;}	
 	</style>
 	
 </head>
@@ -44,7 +44,7 @@
 		<a href="#"> 50% 할인 </a><br>
 
 		
-		<input type="text" style="text-align: left;"><button>검색</button> 
+		<input type="text" style="text-align: left;"><button class="box">검색</button> 
 		<a href="search.jsp"><img src="../img/cart.png" width="30px;"></a>	
 		
 		
@@ -65,6 +65,8 @@
 		<a href="/JSPweb/member/myshopping.jsp">나의쇼핑</a>
 		</div>
 		<% } %>
+		
+		<a href="/JSPweb/board/boardlist.jsp">자유게시판</a> <br>
 		
 	</div>
 	

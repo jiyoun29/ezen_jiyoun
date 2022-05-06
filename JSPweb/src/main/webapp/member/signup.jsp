@@ -8,11 +8,11 @@
 <style type="text/css">
 
 	
-	*{color: #FFAAAA;}
+	*{color: #FFAAAA; text-align: center;}
 	
 	.sign{width: 100px; height: 50px; padding:10px 10px;}
 	button{background-color: white; border: solid 1px #FFAAAA;}
-	.back{ width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);text-align: center;	}
+	.back{ width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);}
 
 
 </style>

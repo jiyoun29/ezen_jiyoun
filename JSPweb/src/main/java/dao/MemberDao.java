@@ -162,16 +162,20 @@ public class MemberDao extends Dao { //자식클래스로 객체 생성 시 부�
 			ps.setInt(6, member.getMno());
 		}
 			ps.executeUpdate(); return true;
-		} catch (Exception e) {System.out.println("패스워드변경오류"+e);} 		return false;
+		} catch (Exception e) {System.out.println("패스워드변경오류"+e);} return false;
 	}
 	
 	
 	
-	
-	
-	
-	
-	
+	//회원번호 출력 메소드
+	public int getmno(String mid) {
+		String sql = "select mno from memdb where mid ='"+mid+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) return rs.getInt(1);
+		} catch (Exception e) {System.out.println("회원번호출력실패"+e);} return 0;
+	}
 	
 	
 	
