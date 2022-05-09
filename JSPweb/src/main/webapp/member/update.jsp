@@ -9,11 +9,9 @@
 <title>Insert title here</title>
 <style type="text/css">
 	
-	*{color: #FFAAAA;}
+	*{color: #FFAAAA; text-align: center;}
 	#addressbtn{background-color: white; border: solid 1px #FFAAAA;}
 	button{background-color: white; border: solid 1px #FFAAAA;}
-	.back{	width:1280px; height:720px;
-	background: linear-gradient(to top, #FFC9C9, white);	}
 	
 </style>
 </head>
@@ -30,7 +28,6 @@
 	%>
 	
 	<div class="container"> <!-- 박스권 -->
-	<div class="back">
 		<div class="row"> <!-- 가로배치 -->
 			<div class="col-md-3"> <!-- 사이드바 -->
 				<%@include file = "sidebar.jsp"%>
@@ -54,7 +51,7 @@
 				<form action="../update" method="post"> <!-- update 서블릿 파일로 post 전송-->
 					<input type="hidden" name="mno" value="<%=member.getMno()%>"> <!-- 수정할 대상[pk] -->
 					아이디 : <%=member.getMid()%><br>
-					비밀번호 : <button type="button" onclick="passwordchange()">비밀번호 변경</button>
+					비밀번호 : <button type="button" onclick="passwordchange()">비밀번호 변경</button><br>
 					
 						<div id="passwordbox" style="display: none;"> <!-- none으로 숨김 -->
 							기존 비밀번호 : <input type="password" name="oldpw"><br>
@@ -89,7 +86,6 @@
 
 			</form>
 			</div>
-		</div>
 		</div>
 	</div>
 

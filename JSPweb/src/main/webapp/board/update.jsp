@@ -1,3 +1,5 @@
+<%@page import="dao.BoardDao"%>
+<%@page import="dto.board"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,20 +20,30 @@
 <body>
 <%@include file = "../header.jsp" %>
 
+	<%
+	int bno = Integer.parseInt(request.getParameter("bno"));
+	board board = BoardDao.getBoardDao().getboard(bno);
+	%>
+
 	<br>
 	<div class="container">
 		<a href="boardlist.jsp"><button>글목록</button></a> <br><br>
-		<h3>글 쓰기</h3>
-		<form action="../board/write" method="post" enctype="multipart/form-data"> <!-- 위치??? -->
-		<!-- form 전송 인코딩 타입 : 기본타입은 첨부파일 불가능 -->
-		<!-- form 첨부파일 전송 인코딩 타입 : enctype="multipart/form-data" -->
-		
-			제목 : <input type="text" name="btitle" style="width: 600px;"> <br>
-			내용 : <textarea name="bcontent"  id="summernote"></textarea><br>
+		<h3>글 수정</h3>
+		<form action="../board/update?bno=<%=board.getBno()%>" method="post" enctype="multipart/form-data">
+			제목 : <input type="text" name="btitle" style="width: 600px;" value="<%=board.getBtitle()%>"> <br>
+			내용 : <textarea name="bcontent" id="summernote"><%=board.getBcontent()%></textarea><br>
+
+			<%if(board.getBfile()!=null){ %>			
+			첨부파일 : <%=board.getBfile() %>
+				<button type="button" onclick="filedelete(<%=board.getBno()%>)">파일 삭제</button>
+			<%} %>
+			<br>
 			
-			첨부파일 : <input type="file" name="bfile"> <br>
+			<input type="file" name="bfile"> <br>
 <!--			첨부파일(여러개) : <input type="file" multiple="multiple">  -->
-			<input type="submit" value="등록" class="box"> <input type="reset" value="취소" class="box">  <br>
+
+			<input type="submit" value="수정" class="box">
+			<input type="reset" value="취소" class="box">  <br>
 		</form>
 	</div>
 	

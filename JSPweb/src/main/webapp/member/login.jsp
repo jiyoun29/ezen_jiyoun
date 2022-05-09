@@ -8,7 +8,7 @@
 <style type="text/css">
 	*{color:#FFAAAA; text-align: center;}
 	.back{ width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);	}
-	.box{width: 100px; height: 50px; padding:10px 10px; background-color: white; border: solid 1px #FFAAAA;}
+	.box{background-color: white; border: solid 1px #FFAAAA;}
 </style>
 </head>
 <body>

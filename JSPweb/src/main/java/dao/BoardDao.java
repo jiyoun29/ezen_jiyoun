@@ -50,7 +50,7 @@ public class BoardDao extends Dao {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			
-			//왜while을쓰지?
+			//왜while을쓰지? -> 지속적으로 반복하기 위해서
 			while(rs.next()) { //다 꺼내오기
 				board board = new board(rs.getInt(1),rs.getString(2),
 						rs.getString(3), rs.getInt(4), rs.getInt(5),
@@ -65,16 +65,79 @@ public class BoardDao extends Dao {
 	
 	
 	//3. 개별 게시물 출력 메소드[인수 : 게시물 번호]
-	public board getboard(int bno) {return null;}
+	public board getboard(int bno) {
+		
+		//1. sql 작성 //bno 빼오기
+		String sql = "select * from board where bno="+bno;
+		
+		try {
+			//2. 연결된 db(con)에 sql 넣어서 조작
+			ps = con.prepareStatement(sql);
+			//3. 조작된 sql을 실행
+			rs = ps.executeQuery();
+			
+			//4. 검색 결과 가져오기 위해 rs.next를 할때마다 레코드 한개씩 호출
+			//한개 빼올때에는 if. 다 빼올 때에는 while
+			if(rs.next()) {
+				board board = new board(rs.getInt(1),rs.getString(2),
+						rs.getString(3), rs.getInt(4), rs.getInt(5),
+						rs.getString(6), rs.getString(7), null);
+				return board; //성공시 board를 줌
+			}			
+		} catch (Exception e) {System.out.println("오류"+e);}		
+		return null;} //실패시 null값을 줌
+	
+	
+	
 	
 	//4. 게시물 수정 메소드[인수 : 수정할 게시물 번호 / 수정된 내용]
-	public boolean update(board board) {return false;}
+	public boolean update(board board) {
+		String sql = "update board set btitle=? , bcontent=? , bfile=? where bno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, board.getBtitle());
+			ps.setString(2, board.getBcontent());
+			ps.setString(3, board.getBfile());
+			ps.setInt(4, board.getBno());
+			ps.executeUpdate(); return true;
+		}catch (Exception e) {System.out.println("오류"+e);}
+		return false;}
+	
+	
+	
 	
 	//5. 게시물 삭제 메소드[인수 : 삭제할 게시물 번호]
-	public boolean delete(int bno) {return false;}
+	public boolean delete(int bno) {
+		String sql = "delete from board where bno="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+			}catch (Exception e) {System.out.println("오류"+e);}	
+		return false;}
+	
+	
+	
+	//5-1. 첨부파일만 삭제(null 변경) 메소드
+	public boolean filedelete(int bno) {
+		String sql = "update board set bfile = null where bno ="+bno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;
+			}catch (Exception e) {System.out.println("오류"+e);}	
+		return false;
+	}
+	
+	
 
 	//6. 게시물 조회 증가 메소드[인수 : 증가할 게시물 번호]
-	public boolean increview(int bno) {return false;}
+	public boolean increview(int bno) {
+		String sql = "update board set bview = bview+1 where bno = "+bno;
+		try { ps = con.prepareStatement(sql);
+			ps.executeUpdate(); return true;
+		} catch (Exception e) {System.out.println("오류"+e);}	
+		return false;}
 
 	
 	///////////////////

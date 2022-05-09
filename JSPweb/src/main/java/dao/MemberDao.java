@@ -16,7 +16,7 @@ public class MemberDao extends Dao { //자식클래스로 객체 생성 시 부�
 	//아이디 중복체크 메소드
 	public boolean idcheck(String mid) { //인수를 mid로 받아옴
 		//하나만 가져올 때에는 =? 안 쓰고 바로 넣는다
-		String sql = "select * from memdb where mid="+mid;
+		String sql = "select * from memdb where mid='"+mid+"'";
 				
 		try {
 			ps = con.prepareStatement(sql);
@@ -34,7 +34,7 @@ public class MemberDao extends Dao { //자식클래스로 객체 생성 시 부�
 	
 	//이메일 중복체크 메소드
 	public boolean emailcheck(String email) {
-		String sql = "select * from memdb where memail ="+email;
+		String sql = "select * from memdb where memail ='"+email+"'";
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
@@ -47,7 +47,7 @@ public class MemberDao extends Dao { //자식클래스로 객체 생성 시 부�
 	//emailcheck에서 signgup에서 작성한 걸 여기에 연결
 	public boolean signup(member member) {
 		
-		String sql = "insert into memdb(mid,mpassword,mname,mphone,memail,maddress) values(?,?,?,?,?,?)";
+		String sql = "insert into memdb(mid,mpassword,mname,mphone,memail,maddress)values(?,?,?,?,?,?)";
 			try {
 				ps = con.prepareStatement(sql);
 				ps.setString(1, member.getMid()); ps.setString(2, member.getMpassword());
@@ -177,6 +177,16 @@ public class MemberDao extends Dao { //자식클래스로 객체 생성 시 부�
 		} catch (Exception e) {System.out.println("회원번호출력실패"+e);} return 0;
 	}
 	
+	
+	//아이디 출력 메소드
+	public String getmid(int mno) {
+		String sql = "select mid from memdb where mno ='"+mno+"'";
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			if(rs.next()) return rs.getString(1);
+		}catch (Exception e) {System.out.println("회원아이디출력실패"+e);} return null;
+	}
 	
 	
 	

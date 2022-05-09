@@ -66,10 +66,11 @@ public class write extends HttpServlet {
 		HttpSession session = request.getSession();
 		String mid = (String)session.getAttribute("login"); //로깅에 있는 걸 빼오기
 		
-		int mno = MemberDao.getMemberDao().getmno(mid); 
-
+		int mno = MemberDao.getMemberDao().getmno(mid);
+		
 		//객체화
 		board board = new board(0, btitle, bcontent, mno, 0, null, bfile, null);
+		
 				
 				//new board(0, btitle, bcontent, mno, bfile, 0, null, null);
 //		System.out.println(board.toString());

@@ -13,6 +13,9 @@
 	
 	a{text-decoration: none; color:#FFAAAA; }
 	.box{background-color: white; border: solid 1px #FFAAAA;}	
+	.menubar{font-size: 11px;}
+	
+	hr{border-bottom: solid 1px #FFAAAA;}
 	</style>
 	
 </head>
@@ -29,6 +32,7 @@
 	<div class="container">	
 		<!-- 공통 -->
 
+		<div class="menubar">
 		<h3><a href="/JSPweb/main.jsp">HOME</a></h3><br>
 		<a href="#"> BIG SIZE </a>
 		<a href="#"> MUSCLE-FIT </a>
@@ -42,7 +46,7 @@
 		<a href="#"> 트레이닝 </a>
 		<a href="#"> 모델처럼입자 </a>
 		<a href="#"> 50% 할인 </a><br>
-
+		</div>
 		
 		<input type="text" style="text-align: left;"><button class="box">검색</button> 
 		<a href="search.jsp"><img src="../img/cart.png" width="30px;"></a>	
@@ -67,6 +71,7 @@
 		<% } %>
 		
 		<a href="/JSPweb/board/boardlist.jsp">자유게시판</a> <br>
+		<hr/>
 		
 	</div>
 	

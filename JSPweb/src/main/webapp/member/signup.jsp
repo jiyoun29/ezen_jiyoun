@@ -6,13 +6,12 @@
 <meta charset="UTF-8">
 <title>가입</title>
 <style type="text/css">
-
 	
-	*{color: #FFAAAA; text-align: center;}
+	*{color: #FFAAAA;  text-align: center;}
 	
 	.sign{width: 100px; height: 50px; padding:10px 10px;}
 	button{background-color: white; border: solid 1px #FFAAAA;}
-	.back{ width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);}
+//	.back{width:1280px;height:720px; background: linear-gradient(to top, #FFC9C9, white);}
 
 
 </style>
@@ -20,7 +19,7 @@
 <body>
 	<%@include file = "../header.jsp" %>
 	
-	<div class="container col-md-6">
+	<div class="container">
 		<div class="back">
 		<h3>회원가입 페이지</h3>
 		<form id="signupform" action="../signup" method="post">
