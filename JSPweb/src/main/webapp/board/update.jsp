@@ -36,8 +36,8 @@
 			<%if(board.getBfile()!=null){ %>			
 			첨부파일 : <%=board.getBfile() %>
 				<button type="button" onclick="filedelete(<%=board.getBno()%>)">파일 삭제</button>
-			<%} %>
 			<br>
+			<%} %>
 			
 			<input type="file" name="bfile"> <br>
 <!--			첨부파일(여러개) : <input type="file" multiple="multiple">  -->

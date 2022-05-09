@@ -32,35 +32,27 @@
 		</tr>
 		
 		<!-- for문 -->
-		<%
-		//1. 세션 호출 [회원 id 저장](형변환 필요)
-		String mid = (String)session.getAttribute("login");
-		board board = BoardDao.getBoardDao().getboard(bno);
-		
-		if(board.getMno() == MemberDao.getMemberDao().getmno(mid)){
-		
+		<%	
 		//게시물 호출
-		ArrayList<board> boardlist = BoardDao.getBoardDao().getboardlist();		
+		ArrayList<board> boardlist = BoardDao.getBoardDao().getboardlist();
+		for(board board : boardlist){
 		%>
 		
 		<tr>
+		<%
+		String mid = (String)session.getAttribute("login");
+		if(board.getMno() == MemberDao.getMemberDao().getmno(mid)) {%>
+		
 			<td> <%=board.getBno() %> </td>
-			<td> <a href="boardview.jsp?bno=<%=board.getBno()%>"><%=board.getBtitle() %></a> </td>
+			<td> <a href="../board/boardview.jsp?bno=<%=board.getBno()%>"><%=board.getBtitle() %></a> </td>
 			<td> <%=board.getMid() %> </td>
 			<td> <%=board.getBview() %> </td>
 			<td> <%=board.getBdate() %> </td>
 		</tr>
-		
-		<% } %>
-		<tr>
-		</tr>
+		<% } } %>
 	</table>
 	
-	
-
-		</div>
-	</div>
-	</div>
+		</div>	</div>	</div>
 <%@include file = "../footer.jsp" %>
 </body>
 </html>

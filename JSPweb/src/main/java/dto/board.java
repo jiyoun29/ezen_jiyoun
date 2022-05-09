@@ -42,6 +42,7 @@ public class board {
 		this.mno = mno;
 		this.bview = bview;
 		
+		if(bdate != null) {
 		DateTimeFormatter dateformat = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		//LocalDate를 여기서 사용하려면 포맷 사용		
 		String today = dateformat.format(LocalDate.now()); //오늘날짜를 문자열 변환
@@ -52,8 +53,8 @@ public class board {
 		
 		//현재 날짜와 게시물 등록날짜가 동일하면 시간
 		if(today.equals(boardday)) { this.bdate = boardtime;
-		} else { this.bdate = boardday; } //동일하지 않으면 날짜
-		
+		}  else { this.bdate = boardday; } //동일하지 않으면 날짜
+		} else { this.bdate = bdate;}
 		this.bfile = bfile;
 		this.mid = MemberDao.getMemberDao().getmid(mno);
 	}
