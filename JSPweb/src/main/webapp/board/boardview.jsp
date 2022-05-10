@@ -1,3 +1,5 @@
+<%@page import="dto.Reply"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="dao.MemberDao"%>
 <%@page import="dao.BoardDao"%>
 <%@page import="dto.board"%>
@@ -72,10 +74,53 @@
 		
 	</table>
 	
+	
+	<h4>댓글</h4>
+	<input type="text" id="rcontent">
+	<button onclick="replywrite(<%=bno%>)">등록</button>
+	
+	<table id="replytable"> <!-- 댓글작성 성공시 해당 태그는 새로고침 -->
+		<% ArrayList<Reply> replylist = BoardDao.getBoardDao().replylist(bno);
+			for(Reply reply : replylist){
+		%>
+		<tr>
+			<td><%=reply.getMid() %><br><%=reply.getRdate() %></td>
+			<td>
+				<%=reply.getRcontent() %> <br>
+				<button>수정</button>
+				<button>삭제</button>
+				<button onclick="rereplyview(<%=reply.getRno()%>,<%=reply.getBno()%>)">답글</button>
+			</td>
+			
+			<td></td>
+		</tr>
+		
+		<tr> <!-- 대댓글 입력 창 -->
+			<td id=<%=reply.getRno()%>></td>
+			<!-- 해당 태그의 id값을 변수로 설정 = 댓글 번호(댓글 한개당 1개씩) -->
+		</tr>
+		
+
+			<!-- 대댓글 출력 창 -->
+			<%ArrayList<Reply> rereplylist = BoardDao.getBoardDao().rereplylist(bno,reply.getRno());
+			for(Reply rereply : rereplylist){ %>
+				<tr>
+			<td><%=rereply.getMid() %><br><%=rereply.getRdate() %></td>
+			<td>
+				<%=rereply.getRcontent() %> <br>
+				<button>수정</button>
+				<button>삭제</button>
+			</td>
+				</tr>
+
+		<%} }%>
+	</table>
+	
+	
 	</div>
 	
 	
-	
+<script src="/JSPweb/js/board.js" type="text/javascript"></script>	
 <%@include file = "../footer.jsp" %>
 </body>
 </html>

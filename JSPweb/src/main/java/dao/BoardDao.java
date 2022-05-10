@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 
+import dto.Reply;
 import dto.board;
 
 public class BoardDao extends Dao {
@@ -140,13 +141,79 @@ public class BoardDao extends Dao {
 		return false;}
 
 	
+	
+	
 	///////////////////
 	
+	
+	
+	
 	//7. 댓글 작성 메소드[인수 : 작성할 데이터들 = dto]
-	public boolean replywrite() {return false;}
+	public boolean replywrite(Reply reply) {
+		
+		String sql = "insert into reply(rcontent,rindex,bno,mno)values(?,?,?,?)";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, reply.getRcontent());
+			ps.setInt(2, reply.getRindex());
+			ps.setInt(3, reply.getBno());
+			ps.setInt(4, reply.getMno());
+			
+			ps.executeUpdate();
+			return true;
+			
+		} catch (Exception e) {System.out.println("댓글작성오류"+e);}	
 
-	//8. 댓글 출력 메소드[인수 : x]
-	public boolean replylist() {return false;}
+		return false;}
+	
+	
+
+	//8. 댓글 출력 메소드[인수 : 현재 게시물 번호]
+	public ArrayList<Reply> replylist(int bno) {
+		
+		ArrayList<Reply> replylist = new ArrayList<Reply>();		
+		
+		// rindex = 0  : 대댓글 제외. 댓글만 출력
+		String sql = "select * from reply where bno = "+bno+" and rindex = 0";
+												//부모가 없는 애만 가져옴(댓글만 빼오고 대댓글은 안 빼옴 / rindex = 0)
+		
+		try { ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Reply reply = new Reply(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6),
+						null);
+				replylist.add(reply);
+			}
+			return replylist;
+		} catch (Exception e) {System.out.println("오류"+e);}	
+	return null;
+	}
+	
+	
+	//8-2. 대댓글 출력 메소드
+	public ArrayList<Reply> rereplylist(int bno, int rno){
+		ArrayList<Reply> rereplyList = new ArrayList<Reply>();
+		
+		String sql = "select * from reply where bno = "+bno+" and rindex = "+rno;
+
+		try { ps = con.prepareStatement(sql); rs = ps.executeQuery();
+		
+		while(rs.next()) {
+			Reply reply = new Reply(rs.getInt(1), rs.getString(2),
+					rs.getString(3), rs.getInt(4), rs.getInt(5), rs.getInt(6),
+					null);
+			rereplyList.add(reply);
+		}
+		return rereplyList;
+	} catch (Exception e) {System.out.println("오류"+e);}	
+		return null;
+	}
+	
+	
+	
 	
 	//9. 댓글 수정 메소드[인수 : 수정할 댓글 번호]
 	public boolean replyupdate() {return false;}
