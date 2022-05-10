@@ -7,7 +7,9 @@
 <title>Insert title here</title>
 <style type="text/css">
 	li{list-style: none;}
+	a{text-decoration: none; color:black;}
 </style>
+<link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 

@@ -11,8 +11,9 @@
 <title>Insert title here</title>
 <style type="text/css">
 	*{text-align: center;}
-	.box{background-color: white; border: solid 1px #FFAAAA;}	
+	.box{background-color: white; border: solid 1px black;}	
 </style>
+<link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 <%@include file = "../header.jsp" %>
@@ -26,7 +27,7 @@
 			<a href="boardwrite.jsp" class="box"> 글쓰기 </a>
 		<%} %>
 		
-	<table class="table"> <!-- 부트스트랩 -->
+	<table class="table "> <!-- 부트스트랩 -->
 		<tr>
 			<th> 번호 </th><th> 제목 </th><th> 작성자 </th><th> 조회수 </th><th> 작성일 </th>
 		</tr>

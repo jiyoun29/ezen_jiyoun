@@ -1,6 +1,6 @@
 //무조건 문서가 열렸을 때 실행
 $(document).ready(function(){
-	
+
 
   $('#summernote').summernote({
     placeholder: '내용을 입력해주세요.',
@@ -19,8 +19,6 @@ $(document).ready(function(){
 	//html -> js 변수를 이동
 		//1. 메소드 인수로 이동
 		//2. 태그의 value 혹은 html로 이동
-
-
 	alert("파일삭제");
 	
 	//비동기 통신 = 페이지 전환이 없는 상태 db통신
@@ -58,13 +56,24 @@ function replywrite(bno){
 }
 
 
-function rereplyview(rno, bno){
-	//'' or "" : 문자처리 // '문자열'+변수+'문자열'
-	$("#"+rno).html(
-	'<input type="text" id="rrcontent">'+
-	'<button onclick="rereplywrite('+rno+','+bno+')">답글 등록</button>'
-	);
+function rereplyview( rno , bno , mid ){ // 대댓글 입력창 표시 메소드 
+	// ' '  or " "	: 문자처리 	// '문자열' + 변수 + '문자열'
+
+	if( mid == null ){ // 로그인 안되어 있으면
+		alert("로그인 후 작성이 가능합니다."); return;
+	} 
+	// JS 작성 공간 에서는 HTML 작성 불가능 --> HTML 문자처리 
 	
+	$("#"+rno).html(
+		'<div class="row">'+
+			'<div class="col-md-10">'+
+				'<textarea id="rrcontent" class="form-control" rows=3></textarea>'+
+			'</div>'+
+			'<div class="col-md-2">'+
+				'<button class="form-control py-4 my-1" onclick="rereplywrite('+rno+','+bno+')">대댓글 등록</button>'+
+			'</div>'+
+		'</div>'
+	);	
 }
 
 
@@ -89,6 +98,37 @@ function rereplywrite(rno, bno){
 }
 
 
+function replyupdate(rno){
+	
+	$.ajax({
+		url : "replyupdate",
+		data : {"rno":rno},
+		success : function(result){
+			if(result == 1){alert("수정 되었습니다.")
+				$("replytable").load(location.href+" #replytable");}
+			else{alert("수정 실패[관리자에게 문의]")}
+		}
+		
+	})
+}
+
+
+
+function replydelete(rno){
+	
+	$.ajax({
+		url : "replydelete",
+		data : {"rno":rno},
+		success : function(result){
+			if(result == 1){
+				alert("삭제 되었습니다.");
+				$("#replytable").load(location.href+" #replytable");
+			} else { alert("삭제 실패[관리자에게 문의]"); }
+		}
+		
+	})
+	
+}
 
 
 
@@ -99,4 +139,7 @@ function rereplywrite(rno, bno){
 
 
 
-  
+
+
+
+

@@ -216,10 +216,30 @@ public class BoardDao extends Dao {
 	
 	
 	//9. 댓글 수정 메소드[인수 : 수정할 댓글 번호]
-	public boolean replyupdate() {return false;}
+	public boolean replyupdate(Reply reply) {
+		String sql = "update reply set rcontent=? where rno = ?";
+		try {
+			ps = con.prepareStatement(sql);
+			ps.setString(1, reply.getRcontent());
+			ps.setInt(2, reply.getRno());
+			ps.executeUpdate(); return true;
+		}catch (Exception e) {System.out.println("오류"+e);}
+		return false;}
+	
+	
+	
 	
 	//10. 댓글 삭제 메소드[인수 : 삭제할 댓글 번호]
-	public boolean replydelete() {return false;}
+	public boolean replydelete(int rno) {
+		
+		String sql = "delete from reply where rno ="+rno; //+"or rindex ="+rno
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+					return true;
+		} catch (Exception e) {System.out.println("오류"+e);}	
+		
+		return false;}
 	
 	
 	
