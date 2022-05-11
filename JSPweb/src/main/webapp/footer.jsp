@@ -14,6 +14,7 @@ li{list-style:none; text-align: left;}
 <body>
 	<div class="container">
 	<br><br><br><br>
+	<hr/>
 	<ol>
 	<li id="infofoot">회사소개 | 이용약관 | 개인정보취급방침 | 이용안내
 	헤일로샵 대표. 이준민 TEL. 070-4006-1541 사업자등록번호. 166-14-00587 <br>

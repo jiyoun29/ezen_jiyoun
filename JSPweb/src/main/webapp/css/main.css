@@ -68,10 +68,17 @@ textarea {
 }
 
 
+.boardlist_title{
+	border-bottom: 1px solid black;
+	margin: 50px 0px 50px 0px;
+	padding: 5px;
+}
 
 
-
-
+.pagenum{
+	color: #999999;
+	font-size: 13px;
+}
 
 
 

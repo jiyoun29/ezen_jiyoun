@@ -131,7 +131,23 @@ function replydelete(rno){
 }
 
 
-
+function chatwrite(){
+	let cname = $("#cname").val();
+	let ccontent = $("#ccontent").val();
+	
+	$.ajax({
+		url : "../chat",
+		data : {"cname":cname, "ccontent":ccontent},
+		success : function(result){
+			if(result == 1){
+				$("#ccontent").val(""); //작성 input마다 공백으로 초기화
+				$("#chattable").load(location.href+" #chattable");
+			} else { alert("삭제 실패[관리자에게 문의]"); }
+		}
+		
+	});
+	
+}
 
 
 

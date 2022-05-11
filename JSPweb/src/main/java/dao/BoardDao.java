@@ -39,13 +39,42 @@ public class BoardDao extends Dao {
 		return false;}
 	
 	
-	//2. 모든 게시물 출력 메소드 [추후 기능 - 검색 : 조건]
-	public ArrayList<board> getboardlist() {
+	
+	//2-2. 게시물 전체 개수/검색 개수 출력 메소드
+	public int gettotalrow(String key, String keyword) {
+//안넘어옴ㅠ		System.out.println("key"+key);
 		
+		//만약에 작성자 요청이면
+		if(key.equals("mid")) {key = "mno"; keyword = MemberDao.getMemberDao().getmno(keyword)+"";}
+		
+		String  sql = null;
+		if(key.equals("") && keyword.equals("")) { //검색이 있을 경우
+		sql = "select count(*) from board";
+		//검색이 없을 경우
+		} else { sql = "select count(*) from board where "+key+"like'%"+keyword+"%'";}
+
+		try {ps = con.prepareStatement(sql); rs = ps.executeQuery();
+			 if(rs.next()) return rs.getInt(1);
+		}catch (Exception e) {System.out.println("오류"+e);}
+	return 0; }
+	
+	
+	//2. 모든 게시물 출력 메소드 [추후 기능 - 검색 : 조건]
+	public ArrayList<board> getboardlist(int startrow, int listsize, String key, String keyword) {
 		ArrayList<board> boardlist = new ArrayList<board>();
 		
-		//내림차순
-		String sql = "select * from board order by bno desc";
+		String sql = null;
+		if(key.equals("mid")) {key = "mno"; keyword = MemberDao.getMemberDao().getmno(keyword)+"";}
+		
+		if(key.equals("") && keyword.equals("")) { //검색이 없을 경우
+		//내림차순 select * from board order by bno desc limit 0 , 5
+		/*limit 시작인덱스, 표시개수*/
+			
+		sql ="select * from board order by bno desc limit "+startrow+","+listsize;
+					//내가 입력한 값이 포함 된다 (변수는 + 처리 필쑤**)
+		} else {
+			 sql = "select * from board where "+key+" like '%"+keyword+"%' order by bno desc limit "+startrow+","+listsize;			
+		}
 		
 		try {
 			ps = con.prepareStatement(sql);
@@ -172,7 +201,7 @@ public class BoardDao extends Dao {
 	//8. 댓글 출력 메소드[인수 : 현재 게시물 번호]
 	public ArrayList<Reply> replylist(int bno) {
 		
-		ArrayList<Reply> replylist = new ArrayList<Reply>();		
+		ArrayList<Reply> replylist = new ArrayList<Reply>();
 		
 		// rindex = 0  : 대댓글 제외. 댓글만 출력
 		String sql = "select * from reply where bno = "+bno+" and rindex = 0";

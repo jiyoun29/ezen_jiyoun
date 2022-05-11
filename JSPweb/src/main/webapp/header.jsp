@@ -42,16 +42,16 @@
 
 		<!-- 로그인이 안 된 상태 = 만약에 세선이 없으면-->	
 		<% if(loginid ==null){ %>
-		<li><a href="/JSPweb/member/login.jsp" class="header_topmenu"> 로그인</a> | </li>
-		<li><a href="/JSPweb/member/signup.jsp" class="header_topmenu"> 회원가입</a> | </li>
+		<li><a href="/JSPweb/member/login.jsp" class="header_topmenu"> 로그인 </a> | </li>
+		<li><a href="/JSPweb/member/signup.jsp" class="header_topmenu"> 회원가입 </a> | </li>
 		<% } %>
 		<!-- 로그인이 된 상태 = 만약에 세션이 있으면-->
 		<% if(loginid != null){ %>
 		<li><span> <%=loginid %>님 </span> | </li>
-		<li><a href="/JSPweb/logout" class="header_topmenu"> 로그아웃</a> | </li> <!-- 서블릿으로 생성 -->
-		<li><a href="/JSPweb/member/myshopping.jsp" class="header_topmenu"> 나의쇼핑</a> | </li>
+		<li><a href="/JSPweb/logout" class="header_topmenu"> 로그아웃 </a> | </li> <!-- 서블릿으로 생성 -->
+		<li><a href="/JSPweb/member/myshopping.jsp" class="header_topmenu"> 나의쇼핑 </a> | </li>
 		<% } %>
-		<li><a href="/JSPweb/board/boardlist.jsp"> 자유게시판</a></li>
+		<li><a href="/JSPweb/board/boardlist.jsp?key=&keyword=" class="header_topmenu"> 자유게시판</a></li>
 		
 		</ul>
 	</div>
@@ -81,7 +81,7 @@
 		<li class="nav-item"><a href="#"> 슈즈 </a></li>
 		<li class="nav-item"><a href="#"> 악세사리 </a></li>
 		<li class="nav-item"><a href="#"> BEST </a></li>
-		<li class="nav-item"><a href="#"> 트레이닝 </a></li>
+		<li class="nav-item"><a href="teamchat.jsp"> 트레이닝 </a></li>
 		<li class="nav-item"><a href="#" style="color:#ffbb00;"> 모델처럼입자 </a></li>
 		<li class="nav-item"><a href="#" style="color:#ff0000;"> 50% 할인 </a></li>
 		<li class="nav-item"><input type="text" class="header_input" size="13"></li>
