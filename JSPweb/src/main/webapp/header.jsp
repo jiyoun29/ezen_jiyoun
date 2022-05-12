@@ -50,11 +50,17 @@
 		<li><span> <%=loginid %>님 </span> | </li>
 		<li><a href="/JSPweb/logout" class="header_topmenu"> 로그아웃 </a> | </li> <!-- 서블릿으로 생성 -->
 		<li><a href="/JSPweb/member/myshopping.jsp" class="header_topmenu"> 나의쇼핑 </a> | </li>
-		<% } %>
+		
+		
+		<!-- 로그인 id가 admin이면 -->
+		<% if(loginid.equals("admin") ){ %>
+			<li> <a href="/JSPweb/admin/dashboard.jsp" class="header_topmenu"> 관리자모드 </a> </li>
+		<% } } %>
 		<li><a href="/JSPweb/board/boardlist.jsp?key=&keyword=" class="header_topmenu"> 자유게시판</a></li>
 		
 		</ul>
 	</div>
+	
 	</div> <!-- 상단메뉴 끝 -->
 	
 	<div class="navbar navbar-expand-md navbar-light bg-white"> <!-- 본 메뉴 -->
