@@ -82,6 +82,24 @@ public class ProductDao extends Dao {
 	
 	//2. 제품 모든 호출
 	public ArrayList<Product> getproductlist(){
+		ArrayList<Product> products = new ArrayList<Product>();
+
+		String sql = "select * from product";
+		
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Product product = new Product
+						(rs.getInt(1), rs.getString(2),
+						rs.getInt(3), rs.getFloat(4),
+						rs.getInt(5), rs.getString(6),
+						rs.getInt(7));
+				products.add(product);
+			}
+			return products;
+		} catch (Exception e) {System.out.println("오류"+e);}
 		
 		return null;
 	}
@@ -92,6 +110,19 @@ public class ProductDao extends Dao {
 	}
 	
 	//4. 제품 수정[u]
+	
+	//4-1. 상태 변경
+	public boolean activechange( int pactive, int pno) {
+		String sql = "update product set pactive = "+pactive+" where pno="+pno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+			return true;			
+		} catch (Exception e) {System.out.println("오류"+e);}
+		
+		return false;
+	}
+	
 	//5. 제품 삭제[d]
 
 	

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+
+.admin_title{margin: 70px;
+padding: 10px;
+text-align: center;
+border-bottom: 2px orange solid;
+}
+
+
+#categorybox input{
+	margin: 5px 20px;
+}
+
+
+#addform{
+	font-size: 20px;
+}
+
+
+.row{
+	margin: 30px 0px;
+}
+
