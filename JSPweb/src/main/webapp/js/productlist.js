@@ -27,3 +27,73 @@ function activechange(active){
 	
 };
 
+//----------------------------------------------
+
+//재고 빼오기
+function getamount(pno){
+	//제품번호, 색상, 사이즈 동일한 경우 재고 호출
+	
+	let scolor = $("#colorbox"+pno).val();
+	let ssize = $("#sizebox"+pno).val();
+
+	$.ajax({
+		url : 'getstock',
+		data : {'field':'amount', "pno":pno ,
+				"scolor":scolor, "ssize":ssize},
+		success : function(re){
+			if(re == ""){
+				$("#amountbox"+pno).html("해당 사이즈 색상 <br> 재고없음");
+				$("#datebox"+pno).html("");
+			} else {
+				$("#amountbox"+pno).html(re.split(",")[0]+"개");
+				$("#datebox"+pno).html(re.split(",")[1]); }
+		}
+	});
+	//id값을 변수로 연결
+	// $("#amount"+pno).html("색상:"+scolor+"<br>"+"사이즈:"+ssize);
+};
+
+//----------------------------------------------
+//선택한 제품의 재고 변경
+function getstock(pno){
+	
+	$.ajax({
+		url : 'getstock',
+		data : {'pno':pno},
+		success : function(re){
+			$('#stocklistbox').html(re);
+		}
+	});
+};
+
+
+
+function showupdate(sno){
+	$("#updatebox").css("display","block") //재고 수량 수정 입력창 열기
+	$("#sno").val(sno); //수정할 재고번호 담기
+}
+
+//꺼내오기
+function stockupdate(){
+	let sno = $("#sno").val();
+	let samount = $("#samount").val();
+	
+	$.ajax({
+		url : 'stockupdate',
+		data : {'sno' : sno , 'samount' : samount},
+		success : function(re){
+			$("#modalclosebtn2").click(); // 모달 닫기 버튼를 강제로 클릭이벤트 실행 
+			$("#updatebox").css("display","none"); // 재고수량 수정 입력창 숨기기
+			$("#samount").val(""); 
+			
+			$("#mainbox").load( productlist+".jsp");
+		}
+	});
+}
+
+//----------------------------------------------
+//----------------------------------------------
+
+
+
+

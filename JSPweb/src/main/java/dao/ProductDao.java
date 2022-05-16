@@ -129,14 +129,47 @@ public class ProductDao extends Dao {
 ///////////////////////////////////////재고/////////////////////////////////////////////
 
 	//1. 제품의 재고 등록[c]
-	public boolean ssvae() {return false;}
+	public boolean ssvae(Stock stock) {
+		try {
+			String sql = "insert into stock(scolor, ssize, samount, pno)values(?,?,?,?)";
+			ps = con.prepareStatement(sql);
+			ps.setString(1, stock.getScolor());		ps.setString(2, stock.getSsize());
+			ps.setInt(3, stock.getSamount());		ps.setInt(4, stock.getPno());
+			ps.executeUpdate(); return true;
+		} catch (Exception e) {System.out.println("오류"+e);}
+		
+		return false;}
 	
 	//2. 제품의 재고 호출
-	public Stock getstock() {
+	public ArrayList<Stock> getstock(int pno) {
+		ArrayList<Stock> list = new ArrayList<Stock>();
+		try {
+			String sql = "select * from stock where pno ="+pno;
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while(rs.next()) {
+				Stock stock = new Stock(rs.getInt(1), rs.getString(2),
+						rs.getString(3), rs.getInt(4), rs.getString(5),
+						rs.getString(6), rs.getInt(7));
+				list.add(stock);
+			}
+			return list;
+		} catch (Exception e) {System.out.println("재고호출오류:"+e);}
+		
 		return null;
 	}
 	
 	//4. 제품의 재고 수정[u]
+	public boolean stockupdate(int sno, int samount) {
+		String sql = "update stock set samount = "+samount+" where sno="+sno;
+		try {
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate(); return true;
+		} catch (Exception e) {System.out.println("재고수정오류:"+e);}
+		return false;
+	}
+	
+	
 	//5. 제품의 재고 삭제[d]
 	
 	

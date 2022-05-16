@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>대쉬보드</title>
 	<!-- 사용자 정의 css -->
 	<link href="/JSPweb/css/admin.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -14,14 +14,14 @@
 </head>
 <body>
 
-	<marquee scrollamount="10"> 공지사항 표시되는 위치 [제품 관리 철저히 하기] </marquee> <!-- 흘러감 -->
+	<marquee scrollamount="10"> 제품 관리 철저히 하기 </marquee> <!-- 흘러감 -->
 	
 	<div id = "sidebar">
 		<ul> <!-- 사이드바 목록 -->
 			<li><h6> 관리자님을 환영합니다.</h6></li>
 			<li><button onclick="pagechange('productlist')">제품 목록</button></li>
 			<li><button onclick="pagechange('productadd')">제품 등록</button></li>
-			<li><button onclick="#">제품 재고</button></li>
+			<li><button onclick="pagechange('productstock')">제품 재고</button></li>
 			<li><button onclick="#">주문 현황</button></li>
 			<li><button onclick="#">주문 배송</button></li>
 			<li><button onclick="#">매출 관리</button></li>
