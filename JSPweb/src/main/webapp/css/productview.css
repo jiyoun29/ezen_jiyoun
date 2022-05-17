@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.viewbox{	margin: 50px 0px;}
+
+img{width: 100%;}
+
+.infobox{ border-top: 1px solid black;
+	margin-left: 50px;}
+
+.view_title{	margin-top: 20px;}
+
+.price_box{	margin: 30px 0px;}
+
+.price_rat{	color : red; 
+	font-size: 20px;
+	padding-right: 15px;}
+
+.price_dis{	padding-right: 15px;}
+
+.price{	text-decoration: line-through;
+	padding-right: 15px;
+	color:#999999;	}
+
+.size_box{	margin: 20px 0px; }
+
+.info_t{font-size: 12px;}
+
+.fc{padding:0px; font-size: 5px;}
+
+.amount_input{padding: 10px; vertical-align: middle;}
+
+.amount_btn{display: black; background-color: white;
+font-size: 5px; padding: 0px 5px; border: 1px solid gray;}
+
+.cancel_btn{background-color: white; font-size: 6px;
+border: none; padding-top: 8px;}
+
+.tatal_price{text-align: right;}
