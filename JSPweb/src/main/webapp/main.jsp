@@ -114,8 +114,7 @@
 		<div class="row">
 		
 		<!-- 반복문 시작 -->	
-		<% ArrayList<Product> list = 
-		ProductDao.getProductDao().getproductlist(); 
+		<% ArrayList<Product> list = ProductDao.getProductDao().getproductlist();
 		for(Product p : list){
 		%>
 		

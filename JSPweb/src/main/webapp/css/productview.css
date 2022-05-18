@@ -36,3 +36,19 @@ font-size: 5px; padding: 0px 5px; border: 1px solid gray;}
 border: none; padding-top: 8px;}
 
 .tatal_price{text-align: right;}
+
+.pointbox{font-size:10px;}
+
+
+.btnbox button{ background-color: white;
+	border: 1px solid #999999;
+	/*버튼 크기 늘릴 때에는 padding 사용. 고정값은 width*/
+	width: 30%;
+	padding : 20px 10px;
+	margin-right: 8px;
+}
+
+#btn1{ background-color: black;
+	color : white; }
+#btn3{color:red;}
+
