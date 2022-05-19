@@ -14,7 +14,7 @@ $("#color_select").change(function(){
 //			let map = new Map(); // js map 객체 선언
 //			map = re; //map 객체에 결과물 넣기
 			let list = re.replace("{","");
-			let itemlist = list.split(",");
+			let itemlist = list.split(", ");
 			
 			let html = "";
 				html +="<option value=''>-[필수]-옵션 선택-</option>";
@@ -245,12 +245,14 @@ function savecart(mno){
 				//여러개 entry -> JSONobject //{키1:값, 키2:값,}
 				//여러개 JSONobject -> JSONarray //[{키1: 값, 키2:값},{키1: 값, 키2:값}]
 				// 키 : value(JSONarray)
-	$.ajax({
+				
+	$.ajax({ //전송인코딩 기본타입 -> 문자열
 		url : "savecart",
-		date : {"json" : JSON.stringify(selectlist)},
+		data : {"json" : JSON.stringify(selectlist) , "pno" : $("#pno").val() },
 								//형식을 변환하기
 		success : function(re){
-			alert("서블릿 통신");
+			if(re == -1 ){alert("장바구니에 등록하였습니다.");}
+			else {alert("오류발생[관리자에게 문의] : "+(re+1)+"옵션 ");}
 		}
 	});
 

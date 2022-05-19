@@ -106,7 +106,7 @@
 			%>
 			<div id="btnbox" class="btnbox">
 				<button id="btn1">바로 구매하기</button>
-				<button onclick="savecart('<%=mno %>')" id="btn2">장바구니 담기</button>
+				<button onclick="savecart(<%=mno %>)" id="btn2">장바구니 담기</button>
 				<%
 				//만일 로그인이 있고 관심등록이 되어있으면
 				if(mid != null && ProductDao.getProductDao().getplike(pno, mno)){ //되어 있을 경우 	%>
@@ -122,8 +122,8 @@
 		
 	</div>
 	</div>
-<%@include file = "../footer.jsp" %>
 
 <script src="/JSPweb/js/productview.js" type="text/javascript"></script>
+<%@include file = "../footer.jsp" %>
 </body>
 </html>

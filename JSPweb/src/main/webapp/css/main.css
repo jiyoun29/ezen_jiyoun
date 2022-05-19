@@ -117,13 +117,13 @@ textarea {
 }
 
 .p_discount{
-	font-size: 13px;
-	color : gray;
-	text-decoration: line-through; /*취소선*/
+	font-size: 15px;
 }
 
 .p_price{
-	font-size: 15px;
+	font-size: 13px;
+	color : gray;
+	text-decoration: line-through; /*취소선*/
 }
 
 .p_review{
