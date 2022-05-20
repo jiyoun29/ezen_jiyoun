@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+/*부트스트랩에 없는 걸 입력*/
+
+.pnamebox{
+	padding : 2%;
+}
+.table th{
+	text-align: center;
+}
+.optionbox{
+	padding : 2%;
+	color : #999999;
+	border-top: solid 1px #999999;
+	font-size : 13px;
+}
+.amount_btn{
+	margin-top : 2px;
+	margin-left : 3px;
+	display: block;
+	background-color: white;
+	font-size: 5px;
+	border: 1px solid #ced4da;
+	padding : 0px 10px;
+}
+.pricebox{
+	text-align: right;
+}
+.deletebox button{
+	background-color: white;
+	margin-left: 30px;
+	border: none;
+	color : #999999;
+}
+
+.processbox{
+	margin: 100px 0px 50px 0px;
+	text-align: right;
+}
+
+.processbox span{
+	color : #999999;
+	margin-right: 20px;
+}
+
+#process_active{
+	color : black;
+	font-size: 25px;
+}
+
+.paybox{
+	text-align: center;
+	border: 2px solid #999999;
+	margin: 50px 0px;
+	padding : 50px 20px;
+}
+
+.paybox span{
+	margin-right: 10px;
+}
+
+#totalpay{
+	color : #dc143c;
+	font-size : 30px;
+}
+
+.pointbox{
+	color : #c0c0c0;
+	font-size: 14px;
+	margin-top: 10px;
+}
+
+
