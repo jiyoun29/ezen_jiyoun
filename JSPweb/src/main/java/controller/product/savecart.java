@@ -79,12 +79,11 @@ public class savecart extends HttpServlet {
 					//get메소드는 제이슨 객체.get(키)를 넣으면 반환타입이 오브젝트이다.
 				//to String으로 스트링값으로 받은 다음, 다시 int 값으로 바꾼다.
 				int totalprice = Integer.parseInt(jsonObject.get("totalprice").toString());
-					//sno
-					//두가지를 받아서 형변환
-					String color = jsonObject.get("color").toString();
-					String size = jsonObject.get("size").toString();
+				//sno
+				//두가지를 받아서 형변환
+				String color = jsonObject.get("color").toString();
+				String size = jsonObject.get("size").toString();
 
-					
 				int sno = 0;
 				ArrayList<Stock> list = ProductDao.getProductDao().getstock(pno);
 					//pno값을 가져와서 리스트의 사이즈를 돌려서

@@ -14,15 +14,16 @@ $("#color_select").change(function(){
 //			let map = new Map(); // js map 객체 선언
 //			map = re; //map 객체에 결과물 넣기
 			let list = re.replace("{","");
-			let itemlist = list.split(", ");
+			let list2 =list.replace( "}","");
+			let itemlist = list2.split(", ");
 			
 			let html = "";
 				html +="<option value=''>-[필수]-옵션 선택-</option>";
 			
 			for(let item of itemlist){
-			let color = item.split("=")[0];
+			let size = item.split("=")[0];
 			let amount = item.split("=")[1];
-				html += "<option value=''>"+color+"-"+amount+"</option>";
+				html += "<option value='"+size+"'>"+size+" - "+amount+"</option>";
 			}
 			$("size_select").html(html); 	// id.html( )  : 새로운 데이터 
 			// $("#size_select").append('<option>asdasd</option>'); // id.append( ) : 데이터 추가
@@ -52,10 +53,10 @@ $("#size_select").change(function(){
 	let pname = $("#pname").html(); //제품 이름
 
 	let color = $("#color_select").val(); // 선택한 색상
-	if(color == ""){return;} //색상이 공백이면 실행x
+		if(color == ""){return;} //색상이 공백이면 실행x
 	let size = $("#size_select").val(); //선택한 사이즈
 		//val값을 빼올 때에는 ()를 반드시 포함시킬 것
-	if(size == ""){return;} //색상이 공백이면 실행x
+		if(size == ""){return;} //색상이 공백이면 실행x
 	
 	
 	
@@ -114,7 +115,9 @@ $("#size_select").change(function(){
 		 /g : 전역 검색[모든 곳 검색]
 		 /i : 대소문자 구분없는 검색
 	*/
-let comm = "/\B( ?= (\d{3})+(?!\d))/g "; //천단위 구분쉼표 정규표현식 변수
+	
+	
+// let comm = "/\B( ?= (\d{3})+(?!\d))/g "; //천단위 구분쉼표 정규표현식 변수
 	//데이터.toString().replace("정규표현식",",");
 
 
@@ -145,12 +148,11 @@ function optionprint(){
 				"<button onclick='amountincre("+i+")' class='amount_btn'>▲</button>"+
 				"<button onclick='amountdecre("+i+")' class='amount_btn'>▼</button> </div>"+
 				"<div class='col-md-1'>"+
-				"<button onclick='optioncancle("+i+
+				"<button onclick='optioncancle("+i+")' class='cancel_btn'>x</button> </div>"+
 						//x버튼을 눌렀을 때 이벤트 -> i값 인수 전달 -> i : 배열내 객체 인덱스
-					")' class='cancel_btn'>x</button> </div>"+
 			"</div> </td> <td>"+
 			"<span class='pricebox'>"
-				+selectlist[i].totalprice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원"
+				+selectlist[i].totalprice.toString()+"원"
 					+"</span> <br> "+
 			"<span class='pointbox'>(적)"
 				+selectlist[i].point.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+"원"
@@ -163,10 +165,11 @@ function optionprint(){
 	let total_price =0;
 	let total_amount = 0;
 	for(let i =0 ; i<selectlist.length; i++ ){
-		total_price += (selectlist[i].amount*selectlist[i].pprice);
+		total_price += selectlist[i].totalprice;
 		total_amount += selectlist[i].amount; }
 	//객체 내 총합계를 구함
-	$("#total_price").html( total_price + '('+total_amount+'개)');
+	$("#total_price").html( total_price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')+
+				'원 ('+ total_amount +'개)' );
 }
 
 

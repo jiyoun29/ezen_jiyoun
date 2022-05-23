@@ -47,10 +47,8 @@ function tableview(){
 			totalpay = 0; // 총주문액 
 			
 			for(let i = 0 ; i<jsonarray.length; i++){
-				
 				//무조건 진행. 누적더하기
-				sumprice = jsonarray[i]["totalprice"];
-				
+				sumprice += jsonarray[i]["totalprice"];
 				
 //				alert(re[i]);
 //				alert(Object.keys(re[i]));
@@ -112,6 +110,7 @@ function tableview(){
 		//총주문금액=총가격=배송비
 		totalpay = sumprice + deliverypay;
 		
+		
 		//포인트
 		point = parseInt(sumprice * 0.01 ); //parseInt(데이터) : 정수형 변환
 		
@@ -144,7 +143,7 @@ function deletecart( i ){
 	$.ajax({
 		url : 'deletecart' ,
 		data : { 'cartno' : jsonarray[i]["cartno"] }	 ,
-		success : function(re){ alert(re);
+		success : function(re){
 			getcart();
 		}
 	});
@@ -188,7 +187,7 @@ function amountdecre(i){
 
 
 /* json 배열내 특정 인덱스 삭제 */
-function cancel( i ){ alert("캔슬");
+function cancel( i ){
 	if( i == -1 ){ //만약에 i가 -1이면 전체 삭제
 		if(confirm("전체 삭제 하시겠습니까?")){
 			//confirm("내용") 확인/취소 버튼 알림창

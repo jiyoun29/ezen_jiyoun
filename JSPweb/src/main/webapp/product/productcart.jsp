@@ -20,11 +20,10 @@
 			<span> 03 주문결제 </span> <span> > </span>
 			<span> 04 주문완료 </span> <span> > </span>
 		</div>
+		
 	<table class="table my-5" id="carttable"> <!-- b : 테이블 -->
-
 	<!-- 쓴거 몽땅 js로 가져감 -->
 		<!-- js에서 데이터가 들어가는 위치 -->
-
 	</table>
 	
 	<div class="col-sm-2"> <!-- -1이라는 인덱스는 없기 때문에 다 없앨 수 있음 -->

@@ -1,5 +1,6 @@
 package dao;
 
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -11,6 +12,7 @@ import dto.Category;
 import dto.Product;
 import dto.Stock;
 import dto.cart;
+import dto.porder;
 
 public class ProductDao extends Dao {
 	
@@ -224,7 +226,9 @@ public class ProductDao extends Dao {
 		} catch (Exception e) {System.out.println("오류:"+e); return 3;//db오류	
 		
 	} }
-		
+	
+
+// 해당 제품 찜하기 여부 확인 메소드 
 	public boolean getplike(int pno, int mno) {
 		String sql = "select * from plike where pno ="+pno+" and mno="+mno;
 		
@@ -321,10 +325,43 @@ public class ProductDao extends Dao {
 	}	
 }
 	
+////////////////////////////////// 주문 /////////////////////////////////
 	
 	
-	
-	
+	public boolean saveorder(porder porder) {
+		
+		String sql = "insert into porder(ordername,orderphone,orderaddress,"
+				+ "ordertotalpay, orderrequest,mno)value(?,?,?,?,?,?)";
+		//insert 후에 자동 생성된 pk값 가져오기 ********
+		try {  ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+									// sql의 Statement. 기본 키 빼내어오기
+			ps.setString(1, porder.getOrdername());
+			ps.setString(2, porder.getOrderphone());
+			ps.setString(3, porder.getOrderaddress());
+			ps.setInt(4, porder.getOrdertotalpay());
+			ps.setString(5, porder.getOrderrequest());
+			ps.setInt(6, porder.getMno());
+			ps.executeUpdate();
+			rs = ps.getGeneratedKeys(); //pk값 가져오기
+			
+			if(rs.next()) {
+				System.out.println("방금 생성된 pk값"+rs.getInt(1));
+			int pk = rs.getInt(1);	
+		//cart -> porderdetail
+		sql = "insert into porderdetail( samount , totalprice , orderno , sno )"
+				+ "select samount, totalprice,"+pk+", sno from cart where mno = "+porder.getMno();
+											//pk뒤에 ',' 놓치지 말기 ********
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate(); // 끝
+			
+		//cart -> delete
+		sql = "delete from cart where mno ="+porder.getMno();
+		ps = con.prepareStatement(sql);
+		ps.executeUpdate(); return true; //서블릿으로 가서 마저 적기
+		}
+	} catch (Exception e) {System.out.println("장바구니 삭제 오류:"+e); }
+	return false;
+}
 	
 	
 	

@@ -70,7 +70,7 @@
 				<tr>
 					<td width="20%">DELVERY</td> <td>2,500원 (70,000원 이상 구매시 무료)</td>
 				</tr>
-				<tr> <td>SALE</td> <td> <%=df.format( point )%></td> </tr>
+				<tr> <td>SALE</td> <td> <%=df.format( point )%>(1%)</td> </tr>
 				<tr>
 					<td>COLOR</td>
 					<td> <select id="color_select" class="form-select info-t">
@@ -83,10 +83,12 @@
 				<tr>
 					<td>SIZE</td>
 					<td> <select id="size_select" class="form-select info-t">
-						<option value="">-[필수]-옵션 선택-</option>
+						<option value="">[필수] 옵션 선택</option>
 						<%for(String s : sizelist){ %>
 							<option value=<%=s %>><%=s %></option>
-						<%} %>						</select> </td>
+						<%} %>						
+						
+						</select> </td>
 				</tr>
 			</table>
 		
