@@ -364,6 +364,84 @@ public class ProductDao extends Dao {
 }
 	
 	
+
+//주문내역 메소드
+	public JSONArray getorder(int mno) {
+		String sql = "select A.orderno as 주문번호, A.orderdate as 주문일 , "
+				+ "B.orderdetailno as 주문상세번호 , B.orderdetailactive as 주문상세상태 , "
+				+ "B.samount as 주문상세수량 , C.sno as 재고번호 , C.scolor as 색상 , "
+				+ "C.ssize as 사이즈 , D.pno as 제품번호, D.pname as 제품명 , D.pimg as 제품사진 "
+				+ "from porder A join porderdetail B on A.orderno = B.orderno "
+				+ "join stock C on B.sno = C.sno "
+				+ "join product D on C.pno = D.pno where A.mno = "+mno+" order by A.orderno desc;";
+		
+		try { ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+		
+			//json 사용하는 이유 -> js로 전송하기 위해서.
+			//array 사용하는 이유 -> jsp로 사용하기 위해서
+			JSONArray parentlist = new JSONArray(); //상위 리스트[여러개의 하위 리스트]
+				//어레이리스트 하나 더 생성 (그룹 짓기 위해서)
+				JSONArray childlist = new JSONArray();
+				
+				int oldorderno = -1; //이전 데이터의 주문번호 임시저장 변수
+		
+			//우선 다 빼오기
+			while(rs.next()) {
+				
+				//동일한 주문번호끼리 묶음처리
+				// { 키 : 값 } <-json의 형태
+				// { "orderno" : [ 키 : 값 , 키 : 값 ] , "orderno" : [ 키 : 값 , 키 : 값 ] };	
+					// 주문번호 따라 가능
+
+			//데이터 json 객체	
+				//while문을 돌려서 오브젝트를 하나 생성
+				JSONObject jsonObject = new JSONObject();				
+				
+				//오브젝트에 key값을 하나씩 넣어준다.
+				jsonObject.put( "orderno" , rs.getInt(1));
+				jsonObject.put( "orderdate" , rs.getString(2));
+				jsonObject.put( "orderdetailno" , rs.getInt(3));
+				jsonObject.put( "orderdetailactive" , rs.getInt(4));
+				jsonObject.put( "samount" , rs.getInt(5));
+				jsonObject.put( "sno" , rs.getInt(6));
+				jsonObject.put( "scolor" , rs.getString(7));
+				jsonObject.put( "ssize" , rs.getString(8));
+				jsonObject.put( "pno" , rs.getInt(9));
+				jsonObject.put( "pname" , rs.getString(10));
+				jsonObject.put( "pimg" , rs.getString(11));
+				// 이렇게 사용시, 따로 dto가 필요하지 않다.
+				
+				//동일한 주문번호이면 동일한 리스트에 담기
+				//{키 : 값}
+				//{키:[], 키:[], 키:[]}				
+				
+				if(oldorderno == rs.getInt(1)) {
+					//이전 주문번호와 현재 주문번호가 동일하면 하위리스트를 초기화x
+					childlist.put(jsonObject);// 하위리스트에 데이터 담기
+				} else { //동일하지 않으면
+					childlist = new JSONArray(); // 하위 리스트 초기화
+					childlist.put(jsonObject); //하위 리스트에 데이터 담기
+					parentlist.put(childlist); //상위 리스트에 하위 리스트 추가
+				}			
+				oldorderno = rs.getInt(1); //이전 주문번호 변수에 현재 주문번호 넣기
+				
+				//담은 것을 jsonarray에 담아준다.
+				// jsonArray.put(jsonObject);
+			} return parentlist;	
+		} catch (Exception e) {System.out.println("주문내역 오류:"+e); }
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 //////////////////////////////////

@@ -1,0 +1,25 @@
+@charset "UTF-8";
+
+.orderbox{ margin: 50px 10px;}
+
+.orderinfo{ padding : 20px; }
+
+.orderinfo span{ font-size : 13px; color:#999999; }
+
+.orderdetailbox{
+	padding : 20px;
+	border : 1px solid gray;
+	border-radius: 10px;
+}
+
+.product{margin: 20px 5px;}
+.pname{margin-top:50px; padding:5px; border-bottom: solid 1px gray;}
+.poption{padding:5px; font-size : 13px; color : #999999; margin-bottom: 20px;}
+
+.orderbtnbox button{
+	font-size : 14px;
+	background-color: white;
+	border : solid 1px #999999;
+	border-radius : 10px;
+	padding : 5px 20px;
+	margin-left: 10px;}
