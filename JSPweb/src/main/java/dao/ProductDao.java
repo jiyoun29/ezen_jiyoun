@@ -433,16 +433,58 @@ public class ProductDao extends Dao {
 		return null;
 	}
 	
+
+	//주문취소
+	public boolean cancleorder(int orderdetailno , int active) {
+		try { String sql = "update porderdetail set orderdetailactive = "+active
+				+" where orderdetailno = " +orderdetailno;
+			ps = con.prepareStatement(sql); ps.executeUpdate(); return true;
+		} catch (Exception e) { System.out.println("취소:"+e); }
+		return false;
+	}
 	
 	
+///////////////////////////////////////////////////////////////////
 	
-	
-	
-	
-	
-	
-	
-	
-	
+	public JSONArray getchart( int type ) {
+		String sql = "";
+		JSONArray ja = new JSONArray();
+		
+		if( type == 1) { //일별 매출
+			sql = "select substring_index( orderdate , ' ' , 1 ) as 날짜 , "
+					+ " sum( ordertotalpay ) from porder "
+					+ " group by 날짜 order by 날짜 desc ";
+		} else  if (type == 2) { //카테고리별 전체 판매량
+			sql = "select sum(A.samount) ,"
+			+ "	D.caname "
+			+ "	from porderdetail A, stock B, product C, category D "
+			+ " where A.sno = B.sno and B.pno = C.pno and C.cano = D.cano "
+			+ "	group by D.caname order by orderdetailno desc ";
+		}
+		try {
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			while( rs.next() ) {
+				JSONObject jo = new JSONObject();
+				if( type == 1 ) {
+					jo.put("date", rs.getString( 1 ) );
+					jo.put("value", rs.getInt(2) );
+					ja.put(jo);
+				}else if( type == 2 ) {
+					jo.put("value", rs.getString( 1 ) );
+					jo.put("category", rs.getString(2) );
+					ja.put(jo);
+				}
+			}
+			return ja;
+		} catch (Exception e) { System.out.println("겟차트오류:"+e); }
+	return null; // 오류발생,,
+}
+
+
+
+
+
+
 //////////////////////////////////
 }
