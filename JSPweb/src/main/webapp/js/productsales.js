@@ -120,7 +120,7 @@ $( function(){
 	  orientation: "horizontal"
 	}));
 	
-var data = generateDatas( jsonlist.length ); //차트에 들어가는 데이터 [ 인수 : 객체수 ]
+var data = generateDatas( jsonlist1.length ); //차트에 들어가는 데이터 [ 인수 : 객체수 ]
 series.data.setAll(data);
 	
 	
