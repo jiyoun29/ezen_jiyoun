@@ -93,6 +93,8 @@ textarea {
 .adbox{
 	margin: 50px 10px 50px 0px;
 }
+.adbox img{width: 100%;}
+#mainslide{margin-bottom: 40px;}
 
 .main_box{
 	margin-bottom: 70px;

@@ -31,16 +31,21 @@
 			<th> 번호 </th><th> 제목 </th><th> 작성자 </th><th> 조회수 </th><th> 작성일 </th>
 		</tr>
 		
+		
 		<!-- for문 -->
-		<%	
+		<%
+		String mid = (String)session.getAttribute("login");	
+		
+		int mno = MemberDao.getMemberDao().getmno(mid);
+		
 		//게시물 호출
-		ArrayList<board> boardlist = BoardDao.getBoardDao().getboardlist();
+		ArrayList<board> boardlist = BoardDao.getBoardDao().myboard(mno);
+		
 		for(board board : boardlist){
 		%>
 		
 		<tr>
 		<%
-		String mid = (String)session.getAttribute("login");
 		if(board.getMno() == MemberDao.getMemberDao().getmno(mid)) {%>
 		
 			<td> <%=board.getBno() %> </td>

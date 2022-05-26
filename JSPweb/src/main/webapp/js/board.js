@@ -90,26 +90,45 @@ function rereplywrite(rno, bno){
 				$("#rrcontent").val(""); //작성 input마다 공백으로 초기화
 				$("#replytable").load(location.href+" #replytable"); //특정 태그를 새로고침할때 사용
 				//해당 리플테이블의 불러오기 = 본인태그를 다시 불러옴
-			} else{alert("답글 작성에 실패하였습니다.")}
+			} else{alert("답글 작성에 실패하였습니다.");}
 		
 		}
 	});
 	
 }
 
+//대댓글
+function reupdateview(rno){
+	
+	$("#"+rno).html(
+		 '<div class="row">'+
+         '<div class="col-md-10">'+
+            '<textarea id="rupcontent" class="form-control" rows="3"></textarea>'+
+         '</div>'+
+         '<div class="col-md-2">'+
+            '<button class="form-control py-4 my-1" onclick="replyupdate('+rno+')">댓글수정</button>'+
+         '</div>'+
+      '</div>'
+	);
+	
+}
 
+//댓글 수정
 function replyupdate(rno){
+
+	let rcontent = $("#rupcontent").val();
 	
 	$.ajax({
-		url : "replyupdate",
-		data : {"rno":rno},
+		url : "/JSPweb/board/replyupdate",
+		data : {"rno" : rno , "rcontent" : rcontent },
 		success : function(result){
-			if(result == 1){alert("수정 되었습니다.")
-				$("replytable").load(location.href+" #replytable");}
-			else{alert("수정 실패[관리자에게 문의]")}
+			if(result == 1){alert("수정 되었습니다.");
+				$("#replytable").load(location.href+" #replytable");}
+				
+			else{alert("수정 실패[관리자에게 문의]");}
 		}
 		
-	})
+	});
 }
 
 
@@ -148,13 +167,6 @@ function chatwrite(){
 	});
 	
 }
-
-
-
-
-
-
-
 
 
 

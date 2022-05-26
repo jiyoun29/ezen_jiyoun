@@ -117,7 +117,7 @@
 				<%=reply.getRcontent() %> <br>
 				
 		<% if( mid !=null && mid.equals( reply.getMid() ) ){ // 본인 작성한 댓글이면 %>
-			<button class="btn replybtn" onclick="replyupdate(<%=reply.getRno()%>)"> 수정 </button>
+			<button class="btn replybtn" onclick="reupdateview(<%=reply.getRno()%>)"> 수정 </button>
 			<button class="btn replybtn" onclick="replydelete(<%=reply.getRno()%>)"> 삭제 </button>
 		<%} %>
 
@@ -128,6 +128,7 @@
 			
 		</tr>
 		
+	<!-- -------------------------- 대댓글 ------------------------------ -->
 		
 		<tr> <!-- 대댓글 입력 창 -->
 			<td></td>
@@ -150,7 +151,7 @@
 						<%=rereply.getRcontent() %> <br> 
 					<% if( mid != null && mid.equals( rereply.getMid() ) ){ %>
 						<button class="btn replybtn"
-							onclick="replyupdate(<%=rereply.getRno()%>)"> 수정 </button>
+							onclick="reupdateview(<%=rereply.getRno()%>)"> 수정 </button>
 							
 						<button class="btn replybtn"
 							onclick="replydelete(<%=rereply.getRno()%>)"> 삭제 </button>
@@ -161,7 +162,7 @@
 	</table>
 	
 	
-	</div>
+</div>
 	
 	
 <script src="/JSPweb/js/board.js" type="text/javascript"></script>	

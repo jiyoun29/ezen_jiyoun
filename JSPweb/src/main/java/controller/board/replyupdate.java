@@ -21,30 +21,27 @@ public class replyupdate extends HttpServlet {
         super();   }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	}
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		System.out.println("업데이트");
+		
 		request.setCharacterEncoding("UTF-8");
 
-		System.out.println("sadasdas");
-		int rindex = Integer.parseInt(request.getParameter("rno")); //수정 식별 대상
-		int bno = Integer.parseInt(request.getParameter("bno"));
-		System.out.println("sad444444");
+		int rno = Integer.parseInt(request.getParameter("rno")); //수정 식별 대상
+//		int bno = Integer.parseInt(request.getParameter("bno"));
 		
 		String rcontent = request.getParameter("rcontent");
-			String mid = (String)request.getSession().getAttribute("login");
-		int mno = MemberDao.getMemberDao().getmno(mid);	
-		System.out.println("sad234234s");
-			
-		Reply reply = new Reply(0, rcontent, null, rindex, bno, mno, null);
-		System.out.println("sad77777s");
+//			String mid = (String)request.getSession().getAttribute("login");
+//		int mno = MemberDao.getMemberDao().getmno(mid);			
+//		Reply reply = new Reply(0, rcontent, null, rindex, bno, mno, null);
 		
 		//db처리
-		boolean result = BoardDao.getBoardDao().replyupdate(reply);
+		boolean result = BoardDao.getBoardDao().replyupdate(rno, rcontent);
 		if(result) {response.getWriter().print(1);}
 		else {response.getWriter().print(2);}
 		
 		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	}
 }

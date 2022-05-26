@@ -119,6 +119,24 @@ public class BoardDao extends Dao {
 	
 	
 	
+	public ArrayList<board> myboard(int mno){
+		
+		ArrayList<board> mylist = new ArrayList<board>();
+		String sql = " select * from board where mno ="+mno;
+		
+		try { ps = con.prepareStatement(sql);
+		rs = ps.executeQuery();
+		
+		while(rs.next()) {
+			board board = new board(rs.getInt(1), rs.getString(2),
+					rs.getString(3), rs.getInt(4), rs.getInt(5),
+					rs.getString(6), rs.getString(7), null);
+				mylist.add(board);
+			} return mylist;
+		} catch (Exception e) {System.out.println("마이보드오류"+e);}		
+		return null;} //실패시 null값을 줌
+
+	
 	
 	//4. 게시물 수정 메소드[인수 : 수정할 게시물 번호 / 수정된 내용]
 	public boolean update(board board) {
@@ -245,16 +263,13 @@ public class BoardDao extends Dao {
 	
 	
 	//9. 댓글 수정 메소드[인수 : 수정할 댓글 번호]
-	public boolean replyupdate(Reply reply) {
-		String sql = "update reply set rcontent=? where rno = ?";
+	public boolean replyupdate(int rno , String rcontent) {
+		String sql = "update reply set rcontent= '"+rcontent+"'" +" where rno = "+rno; //+" or rindex = "+rno;
 		try {
 			ps = con.prepareStatement(sql);
-			ps.setString(1, reply.getRcontent());
-			ps.setInt(2, reply.getRno());
 			ps.executeUpdate(); return true;
-		}catch (Exception e) {System.out.println("오류"+e);}
+		}catch (Exception e) {System.out.println("댓글수정 오류"+e);}
 		return false;}
-	
 	
 	
 	

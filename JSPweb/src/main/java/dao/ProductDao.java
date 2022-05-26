@@ -13,6 +13,7 @@ import dto.Product;
 import dto.Stock;
 import dto.cart;
 import dto.porder;
+import dto.porderdetail;
 
 public class ProductDao extends Dao {
 	
@@ -444,9 +445,9 @@ public class ProductDao extends Dao {
 	}
 	
 	
-///////////////////////////////////////////////////////////////////
+//////////////////////////////////차트/////////////////////////////////
 	
-	public JSONArray getchart( int type ) {
+	public JSONArray getchart( int type , int value ) { //3번째 타입에 필요한 sno = value
 		String sql = "";
 		JSONArray ja = new JSONArray();
 		
@@ -455,18 +456,26 @@ public class ProductDao extends Dao {
 					+ " sum( ordertotalpay ) from porder "
 					+ " group by 날짜 order by 날짜 desc ";
 		} else  if (type == 2) { //카테고리별 전체 판매량
-			sql = "select sum(A.samount) ,"
+			sql = "select sum( A.samount ) ,"
 			+ "	D.caname "
 			+ "	from porderdetail A, stock B, product C, category D "
 			+ " where A.sno = B.sno and B.pno = C.pno and C.cano = D.cano "
 			+ "	group by D.caname order by orderdetailno desc ";
+		} else if ( type == 3 ) { //재고번호 -> 제품별 판매량 추이
+		    sql = "select substring_index( A.orderdate , ' ' , 1 ) as 날짜 , "
+		    + "sum( B.samount ) as 총판매수량 "
+		    + "from porder A , porderdetail B , stock C "
+		    + "where A.orderno = B.orderno and B.sno = C.sno "
+		    + "and C.pno = ( select pno from stock where sno =" +value+" ) "
+		    + "group by 날짜 order by 날짜 desc";
 		}
 		try {
 			ps = con.prepareStatement(sql);
 			rs = ps.executeQuery();
 			while( rs.next() ) {
 				JSONObject jo = new JSONObject();
-				if( type == 1 ) {
+				
+				if( type == 1 || type == 3 ) {
 					jo.put("date", rs.getString( 1 ) );
 					jo.put("value", rs.getInt(2) );
 					ja.put(jo);
@@ -474,13 +483,45 @@ public class ProductDao extends Dao {
 					jo.put("value", rs.getString( 1 ) );
 					jo.put("category", rs.getString(2) );
 					ja.put(jo);
-				}
+				} 
 			}
 			return ja;
 		} catch (Exception e) { System.out.println("겟차트오류:"+e); }
-	return null; // 오류발생,,
+	return null;
 }
 
+	
+	
+	//1. 오늘 주문 상세 목록
+	public ArrayList<porderdetail> getordertail(){ 
+		
+		String sql = "select "
+		+ "	A.* , substring_index( B.orderdate , ' ' , 1 ) as 날짜 "
+		+ "from  porderdetail A , porder B "
+		+ "where A.orderno = B.orderno "
+		+ "and substring_index( B.orderdate , ' ' , 1 ) = substring_index( now() , ' ' , 1 ) "
+		+ "and  A.orderdetailactive = 3";
+		
+		try { ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+			ArrayList<porderdetail> list = new ArrayList<porderdetail>();
+			
+			while(rs.next()) {
+				porderdetail porderdetail = new porderdetail();
+				
+				porderdetail.setOrderdetailno(rs.getInt(1));
+				porderdetail.setOrderdetailactive(rs.getInt(2));
+				porderdetail.setSamount(rs.getInt(3));
+				porderdetail.setTotalprice(rs.getInt(4));
+				porderdetail.setOrderno(rs.getInt(5));
+				porderdetail.setSno(rs.getInt(6));
+				
+				list.add(porderdetail);
+			} return list;
+		} catch (Exception e) { System.out.println("주문상세:"+e); } return null;
+	}
+	
+	
 
 
 

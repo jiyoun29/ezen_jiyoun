@@ -5,10 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>글쓰기</title>
-<style type="text/css">
-	*{text-align: center;}
-	button, .box{background-color: white; border: solid 1px #FFAAAA;}	
-</style>
 
    <!-- 썸머노트 기본 부트스트랩버전 3버전 css cdn -->
    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +27,7 @@
 			
 			첨부파일 : <input type="file" name="bfile"> <br>
 <!--			첨부파일(여러개) : <input type="file" multiple="multiple">  -->
-			<input type="submit" value="등록" class="box"> <input type="reset" value="취소" class="box">  <br>
+			<input type="submit" value="등록"> <input type="reset" value="취소">  <br>
 		</form>
 	</div>
 	

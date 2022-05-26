@@ -75,10 +75,10 @@
 
 	<div class="row adbox"> <!-- 광고/이벤트 -->
 		<div class="col-md-6"> <!-- 광고 -->
-			<img alt="" src="img/add.gif" width="550px">
+			<img alt="" src="img/add.gif">
 		</div>
 		<div class="col-md-6">
-			<img alt="" src="img/add.jpg" width="550px">
+			<img alt="" src="img/add.jpg">
 		</div>
 	</div>
 	
