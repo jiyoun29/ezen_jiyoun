@@ -56,7 +56,7 @@
 		<% if(loginid.equals("admin") ){ %>
 			<li> <a href="/JSPweb/admin/dashboard.jsp" class="header_topmenu"> 관리자모드 </a> </li>
 		<% } } %>
-		<li><a href="/JSPweb/board/boardlist.jsp?key=&keyword=" class="header_topmenu"> 자유게시판</a></li>
+		<li> | <a href="/JSPweb/board/boardlist.jsp?key=&keyword=" class="header_topmenu"> 자유게시판</a></li>
 		
 		</ul>
 	</div>
@@ -86,8 +86,8 @@
 		<li class="nav-item"><a href="#"> 바지 </a></li>
 		<li class="nav-item"><a href="#"> 슈즈 </a></li>
 		<li class="nav-item"><a href="#"> 악세사리 </a></li>
-		<li class="nav-item"><a href="#"> BEST </a></li>
-		<li class="nav-item"><a href="teamchat.jsp"> 트레이닝 </a></li>
+		<li class="nav-item"><a href="/JSPweb/board/chatting.jsp"> BEST </a></li> <!-- db미사용(소켓)_ -->
+		<li class="nav-item"><a href="teamchat.jsp"> 트레이닝 </a></li> <!-- db사용 -->
 		<li class="nav-item"><a href="#" style="color:#ffbb00;"> 모델처럼입자 </a></li>
 		<li class="nav-item"><a href="#" style="color:#ff0000;"> 50% 할인 </a></li>
 		<li class="nav-item"><input type="text" class="header_input" size="13"></li>

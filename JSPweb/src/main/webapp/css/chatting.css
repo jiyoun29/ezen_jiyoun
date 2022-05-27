@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+.chattingbox{
+	border : 3px solid #ffbb00;
+	border-radius: 30px;
+}
+
+.enter_title{
+	border : 2px solid #ffffff;
+	border-radius: 30px;
+	text-align: center;
+	padding : 20%;
+}
+
+img{margin-left: 20%;}
+
+.btnbox span{ font-size: 5px;}
+
+.contentbox{
+	height: 600px;
+	background-color: #b2c7d9;
+	border-radius: 20px;
+	overflow-y : scroll; /* div내 내용이 div 세로 길이보다 커지면 스크롤 생성*/
+}
+
+/* 보낼때 */
+.secontent{
+	margin-top : 10%;
+	text-align: right;
+}
+
+.secontent .content{
+	background-color: #ffeb33;
+}
+
+
+/* 받을때 */
+.recontent{
+	text-align: left;
+}
+
+
+.content{
+	margin-top : 10px;
+	background-color: #ffffff;
+	border-radius: 10px;
+	padding : 10px;
+	display: inline-block;
+	font-size: 14px;
+}
+
+.date{
+	font-size: 1px;
+	margin: 5px 2px;
+}
+
+.alert{
+	background-color: #a9bdce;
+	text-align: center;
+	font : 8px;
+	padding: 2%;
+	margin : 0 auto; /* div 가운데 배치 */
+	width : 70%;
+	border-radius: 10px;
+}
+
+
+/*부트스트랩 css 충돌*/
+/* css 적용 우선순위 : > id > class > tag / !important로 우선순위*/
+.sendbtn{
+	background-color: #ffeb33 !important;
+	border: solid 1px gray;
+}
+
+
