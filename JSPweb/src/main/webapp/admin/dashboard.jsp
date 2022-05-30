@@ -23,7 +23,7 @@
 			<li><button onclick="pagechange('productadd')">제품 등록</button></li>
 			<li><button onclick="pagechange('productstock')">제품 재고</button></li>
 			<li><button onclick="#">주문 현황</button></li>
-			<li><button onclick="#">주문 배송</button></li>
+			<li><button onclick="pagechange('안산시약국')">안산시약국</button></li>
 			<li><button onclick="pagechange('productsales')">매출 관리</button></li>
 			<li> <a href="/JSPweb/main.jsp">홈페이지</a></li>
 			<li> <a href="/JSPweb/logout">로그아웃</a></li>
